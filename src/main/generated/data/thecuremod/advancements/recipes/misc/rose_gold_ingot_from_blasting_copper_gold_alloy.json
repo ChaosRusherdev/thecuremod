@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_copper_gold_alloy": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thecure:copper_gold_alloy"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:rose_gold_ingot_from_blasting_copper_gold_alloy"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_copper_gold_alloy",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:rose_gold_ingot_from_blasting_copper_gold_alloy"
+    ]
+  },
+  "sends_telemetry_event": false
+}
