@@ -1,4 +1,4 @@
-package de.crdev.thecure.datagen.potion_recipes;
+package de.crdev.thecure.datagen.recipes.potion_recipes;
 
 import de.crdev.thecure.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;

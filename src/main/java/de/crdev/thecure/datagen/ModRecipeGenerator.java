@@ -1,8 +1,8 @@
 package de.crdev.thecure.datagen;
 
-import de.crdev.thecure.datagen.ore_recipes.OreRecipes;
-import de.crdev.thecure.datagen.potion_recipes.JarRecipes;
-import de.crdev.thecure.datagen.potion_recipes.VialRecipes;
+import de.crdev.thecure.datagen.recipes.ore_recipes.OreRecipes;
+import de.crdev.thecure.datagen.recipes.potion_recipes.JarRecipes;
+import de.crdev.thecure.datagen.recipes.potion_recipes.VialRecipes;
 import de.crdev.thecure.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
