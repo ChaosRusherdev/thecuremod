@@ -6,15 +6,15 @@ import de.crdev.thecure.datagen.recipes.decorative_recipes.StairRecipes;
 import de.crdev.thecure.datagen.recipes.ore_recipes.OreRecipes;
 import de.crdev.thecure.datagen.recipes.potion_recipes.JarRecipes;
 import de.crdev.thecure.datagen.recipes.potion_recipes.VialRecipes;
+import de.crdev.thecure.datagen.recipes.tool_recipes.RoseGoldTools;
 import de.crdev.thecure.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.recipe.book.RecipeCategory;
 
 import java.util.List;
-import java.util.ServiceLoader;
-import java.util.function.Consumer;
+
 
 public class ModRecipeGenerator extends FabricRecipeProvider {
     public ModRecipeGenerator(FabricDataOutput output) {
@@ -22,31 +22,33 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
-
+    public void generate(RecipeExporter exporter) {
         OreRecipes.generateShapedOreRecipes(exporter);
         OreRecipes.generateShapelessOreRecipes(exporter);
 
-        JarRecipes.generateShapedJarRecipes(exporter);
-        JarRecipes.generateShapelessJarRecipes(exporter);
+        JarRecipes.generateShapedRecipes(exporter);
+        JarRecipes.generateShapelessRecipes(exporter);
 
-        VialRecipes.generateShapedVialRecipes(exporter);
-        VialRecipes.generateShapelessVialRecipes(exporter);
+        VialRecipes.generateShapedRecipes(exporter);
+        VialRecipes.generateShapelessRecipes(exporter);
 
-        BlockRecipes.generateShapedOreRecipes(exporter);
-        BlockRecipes.generateShapelessOreRecipes(exporter);
+        BlockRecipes.generateShapedRecipes(exporter);
+        BlockRecipes.generateShapelessRecipes(exporter);
 
-        SlabRecipes.generateShapedOreRecipes(exporter);
-        SlabRecipes.generateShapelessOreRecipes(exporter);
+        SlabRecipes.generateShapedRecipes(exporter);
+        SlabRecipes.generateShapelessRecipes(exporter);
 
-        StairRecipes.generateShapedOreRecipes(exporter);
-        StairRecipes.generateShapelessOreRecipes(exporter);
+        StairRecipes.generateShapedRecipes(exporter);
+        StairRecipes.generateShapelessRecipes(exporter);
+
+        RoseGoldTools.generateShapedRecipes(exporter);
+        RoseGoldTools.generateShapelessRecipes(exporter);
 
         offerSmelting(exporter, List.of(ModItems.COPPER_GOLD_ALLOY), RecipeCategory.MISC, ModItems.ROSE_GOLD_INGOT,
-                0.25f, 200, "the_cure");
+                0.25f, 200, "rose_gold");
 
         offerBlasting(exporter, List.of(ModItems.COPPER_GOLD_ALLOY), RecipeCategory.MISC, ModItems.ROSE_GOLD_INGOT,
-                0.25f, 100, "the_cure");
+                0.25f, 100, "rose_gold");
 
     }
 }

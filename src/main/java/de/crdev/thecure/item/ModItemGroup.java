@@ -27,6 +27,12 @@ public class ModItemGroup {
                         entries.add(ModItems.GLASS_VIAL);
                         entries.add(ModItems.SCULC_ACID_VIAL);
 
+                        entries.add(ModItems.ROSE_GOLD_SWORD);
+                        entries.add(ModItems.ROSE_GOLD_PICKAXE);
+                        entries.add(ModItems.ROSE_GOLD_SHOVEL);
+                        entries.add(ModItems.ROSE_GOLD_AXE);
+                        entries.add(ModItems.ROSE_GOLD_HOE);
+
 
                         entries.add(ModBlocks.ROSE_GOLD_BLOCK);
                         entries.add(ModBlocks.ROSE_GOLD_BRICKS);

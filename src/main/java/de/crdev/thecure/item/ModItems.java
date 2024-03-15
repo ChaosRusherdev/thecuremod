@@ -4,9 +4,7 @@ import de.crdev.thecure.TheCureMod;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.PotionItem;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -15,25 +13,29 @@ public class ModItems {
 
     public static final Item DOCTORS_GLASSES = registerItem("doctors_glasses",
             new Item(new FabricItemSettings()));
-
     public static final Item COPPER_GOLD_ALLOY = registerItem("copper_gold_alloy",
             new Item(new FabricItemSettings()));
-
     public static final Item ROSE_GOLD_INGOT = registerItem("rose_gold_ingot",
             new Item(new FabricItemSettings()));
-
     public static final Item GLASS_JAR = registerItem("glass_jar",
             new Item(new FabricItemSettings()));
-
     public static final Item SCULC_ACID_JAR = registerItem("sculc_acid_jar",
             new Item(new FabricItemSettings()));
-
     public static final Item GLASS_VIAL = registerItem("glass_vial",
             new Item(new FabricItemSettings()));
-
     public static final Item SCULC_ACID_VIAL = registerItem("sculc_acid_vial",
             new Item(new FabricItemSettings()));
 
+    public static final Item ROSE_GOLD_SWORD = registerItem("rose_gold_sword",
+            new SwordItem(ModToolMaterial.ROSE_GOLD, 4, -2.4f, new FabricItemSettings()));
+    public static final Item ROSE_GOLD_PICKAXE = registerItem("rose_gold_pickaxe",
+            new PickaxeItem(ModToolMaterial.ROSE_GOLD, 2, -2.8f, new FabricItemSettings()));
+    public static final Item ROSE_GOLD_SHOVEL = registerItem("rose_gold_shovel",
+            new ShovelItem(ModToolMaterial.ROSE_GOLD, 3, -3.0f, new FabricItemSettings()));
+    public static final Item ROSE_GOLD_AXE = registerItem("rose_gold_axe",
+            new AxeItem(ModToolMaterial.ROSE_GOLD, 6, -3f, new FabricItemSettings()));
+    public static final Item ROSE_GOLD_HOE = registerItem("rose_gold_hoe",
+            new HoeItem(ModToolMaterial.ROSE_GOLD, -1, 0f, new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(TheCureMod.MOD_ID, name), item);

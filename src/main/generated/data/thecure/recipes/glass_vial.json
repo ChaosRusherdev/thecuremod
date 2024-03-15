@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:oak_button"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    }
+  },
+  "pattern": [
+    " b ",
+    " g ",
+    " g "
+  ],
+  "result": {
+    "item": "thecure:glass_vial"
+  }
+}
