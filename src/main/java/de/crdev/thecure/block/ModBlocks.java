@@ -23,6 +23,7 @@ public class ModBlocks {
             new StairsBlock(ModBlocks.ROSE_GOLD_BRICKS.getDefaultState(), FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block ROSE_GOLD_BRICK_SLAB = registerBlock("rose_gold_brick_slab",
             new SlabBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(TheCureMod.MOD_ID, name), block);

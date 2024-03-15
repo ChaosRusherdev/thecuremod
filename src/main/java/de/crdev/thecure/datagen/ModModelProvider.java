@@ -34,5 +34,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SCULC_ACID_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.GLASS_VIAL, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCULC_ACID_VIAL, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.ROSE_GOLD_SWORD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROSE_GOLD_PICKAXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROSE_GOLD_SHOVEL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROSE_GOLD_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROSE_GOLD_HOE, Models.GENERATED);
     }
 }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:stone_bricks"
+    },
+    "r": {
+      "item": "thecure:rose_gold_block"
+    }
+  },
+  "pattern": [
+    " b ",
+    "brb",
+    " b "
+  ],
+  "result": {
+    "count": 4,
+    "item": "thecure:rose_gold_bricks"
+  }
+}
