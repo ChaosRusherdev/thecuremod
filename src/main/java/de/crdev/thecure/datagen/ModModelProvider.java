@@ -1,11 +1,13 @@
 package de.crdev.thecure.datagen;
 
+import de.crdev.thecure.block.ModBlocks;
 import de.crdev.thecure.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.item.Item;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -14,7 +16,11 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        BlockStateModelGenerator.BlockTexturePool roseGoldBricksTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.ROSE_GOLD_BRICKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ROSE_GOLD_BLOCK);
 
+        roseGoldBricksTexturePool.stairs(ModBlocks.ROSE_GOLD_BRICK_STAIRS);
+        roseGoldBricksTexturePool.slab(ModBlocks.ROSE_GOLD_BRICK_SLAB);
     }
 
     @Override

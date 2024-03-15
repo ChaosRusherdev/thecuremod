@@ -1,5 +1,6 @@
 package de.crdev.thecure;
 
+import de.crdev.thecure.block.ModBlocks;
 import de.crdev.thecure.item.ModItemGroup;
 import de.crdev.thecure.item.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -16,5 +17,7 @@ public class TheCureMod implements ModInitializer {
 		ModItemGroup.registerItemGroups();
 
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
+
 	}
 }

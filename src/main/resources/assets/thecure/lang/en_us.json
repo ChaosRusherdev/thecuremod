@@ -9,5 +9,10 @@
   "item.thecure.glass_vial": "Glass Vial",
   "item.thecure.sculc_acid_vial": "Sculc Acid Vial",
 
+  "block.thecure.rose_gold_block": "Rosegold Block",
+  "block.thecure.rose_gold_bricks": "Rosegold Bricks",
+  "block.thecure.rose_gold_brick_slab": "Rosegold Brick Slab",
+  "block.thecure.rose_gold_brick_stairs": "Rosegold Brick Stairs",
+
   "itemgroup.the_cure_group": "The Cure"
 }

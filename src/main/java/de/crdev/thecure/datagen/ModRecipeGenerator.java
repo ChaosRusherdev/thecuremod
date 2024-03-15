@@ -1,5 +1,8 @@
 package de.crdev.thecure.datagen;
 
+import de.crdev.thecure.datagen.recipes.decorative_recipes.BlockRecipes;
+import de.crdev.thecure.datagen.recipes.decorative_recipes.SlabRecipes;
+import de.crdev.thecure.datagen.recipes.decorative_recipes.StairRecipes;
 import de.crdev.thecure.datagen.recipes.ore_recipes.OreRecipes;
 import de.crdev.thecure.datagen.recipes.potion_recipes.JarRecipes;
 import de.crdev.thecure.datagen.recipes.potion_recipes.VialRecipes;
@@ -10,6 +13,7 @@ import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.recipe.book.RecipeCategory;
 
 import java.util.List;
+import java.util.ServiceLoader;
 import java.util.function.Consumer;
 
 public class ModRecipeGenerator extends FabricRecipeProvider {
@@ -28,6 +32,15 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
 
         VialRecipes.generateShapedVialRecipes(exporter);
         VialRecipes.generateShapelessVialRecipes(exporter);
+
+        BlockRecipes.generateShapedOreRecipes(exporter);
+        BlockRecipes.generateShapelessOreRecipes(exporter);
+
+        SlabRecipes.generateShapedOreRecipes(exporter);
+        SlabRecipes.generateShapelessOreRecipes(exporter);
+
+        StairRecipes.generateShapedOreRecipes(exporter);
+        StairRecipes.generateShapelessOreRecipes(exporter);
 
         offerSmelting(exporter, List.of(ModItems.COPPER_GOLD_ALLOY), RecipeCategory.MISC, ModItems.ROSE_GOLD_INGOT,
                 0.25f, 200, "the_cure");
