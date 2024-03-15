@@ -2,6 +2,7 @@ package de.crdev.thecure.item;
 
 
 import de.crdev.thecure.TheCureMod;
+import de.crdev.thecure.block.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -25,6 +26,13 @@ public class ModItemGroup {
                         entries.add(ModItems.SCULC_ACID_JAR);
                         entries.add(ModItems.GLASS_VIAL);
                         entries.add(ModItems.SCULC_ACID_VIAL);
+
+
+                        entries.add(ModBlocks.ROSE_GOLD_BLOCK);
+                        entries.add(ModBlocks.ROSE_GOLD_BRICKS);
+                        entries.add(ModBlocks.ROSE_GOLD_BRICK_STAIRS);
+                        entries.add(ModBlocks.ROSE_GOLD_BRICK_SLAB);
+
 
                     }).build());
 

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "thecure:block/rose_gold_brick_slab"
+    },
+    "type=double": {
+      "model": "thecure:block/rose_gold_bricks"
+    },
+    "type=top": {
+      "model": "thecure:block/rose_gold_brick_slab_top"
+    }
+  }
+}

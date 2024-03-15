@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "thecure:rose_gold_bricks"
+    }
+  },
+  "pattern": [
+    "   ",
+    "bbb",
+    "   "
+  ],
+  "result": {
+    "count": 6,
+    "item": "thecure:rose_gold_brick_slab"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "thecure:block/rose_gold_bricks",
+    "side": "thecure:block/rose_gold_bricks",
+    "top": "thecure:block/rose_gold_bricks"
+  }
+}
