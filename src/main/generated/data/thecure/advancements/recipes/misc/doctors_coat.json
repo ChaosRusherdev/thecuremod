@@ -1,24 +1,36 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rose_gold_ingot": {
+    "has_black_dye": {
       "conditions": {
         "items": [
           {
             "items": [
-              "thecure:rose_gold_ingot"
+              "minecraft:black_dye"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_stick": {
+    "has_leather": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:stick"
+              "minecraft:leather"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_rose_netherite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thecure:rose_netherite_ingot"
             ]
           }
         ]
@@ -27,7 +39,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "thecure:rose_gold_pickaxe"
+        "recipe": "thecure:doctors_coat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -35,13 +47,14 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_rose_gold_ingot",
-      "has_stick"
+      "has_leather",
+      "has_rose_netherite_ingot",
+      "has_black_dye"
     ]
   ],
   "rewards": {
     "recipes": [
-      "thecure:rose_gold_pickaxe"
+      "thecure:doctors_coat"
     ]
   },
   "sends_telemetry_event": false

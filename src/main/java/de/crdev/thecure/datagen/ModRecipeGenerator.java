@@ -1,5 +1,6 @@
 package de.crdev.thecure.datagen;
 
+import de.crdev.thecure.datagen.recipes.armor_recipes.ArmorRecipes;
 import de.crdev.thecure.datagen.recipes.decorative_recipes.BlockRecipes;
 import de.crdev.thecure.datagen.recipes.decorative_recipes.SlabRecipes;
 import de.crdev.thecure.datagen.recipes.decorative_recipes.StairRecipes;
@@ -43,6 +44,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
 
         RoseGoldTools.generateShapedRecipes(exporter);
         RoseGoldTools.generateShapelessRecipes(exporter);
+
+        ArmorRecipes.generateShapedRecipes(exporter);
+        ArmorRecipes.generateShapelessRecipes(exporter);
 
         offerSmelting(exporter, List.of(ModItems.COPPER_GOLD_ALLOY), RecipeCategory.MISC, ModItems.ROSE_GOLD_INGOT,
                 0.25f, 200, "rose_gold");

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:black_dye"
+    },
+    "l": {
+      "item": "minecraft:leather"
+    },
+    "n": {
+      "item": "thecure:rose_netherite_ingot"
+    }
+  },
+  "pattern": [
+    "l l",
+    "lnl",
+    "lbl"
+  ],
+  "result": {
+    "item": "thecure:doctors_coat"
+  },
+  "show_notification": true
+}

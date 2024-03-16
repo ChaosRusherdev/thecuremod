@@ -2,18 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "b": {
-      "item": "thecure:rose_gold_bricks"
+    "l": {
+      "item": "minecraft:leather"
+    },
+    "n": {
+      "item": "thecure:rose_netherite_ingot"
     }
   },
   "pattern": [
     "   ",
-    "bbb",
+    "lnl",
     "   "
   ],
   "result": {
-    "count": 6,
-    "item": "thecure:rose_gold_brick_slab"
+    "item": "thecure:doctors_belt"
   },
   "show_notification": true
 }

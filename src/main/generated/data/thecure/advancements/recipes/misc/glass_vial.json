@@ -30,5 +30,6 @@
     "recipes": [
       "thecure:glass_vial"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

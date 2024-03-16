@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-15T16:37:03.5902151	theCure/Model Definitions
+// 1.20.2	2024-03-16T19:26:01.1193004	theCure/Model Definitions
 147f43b34aec5aacca4e26a3b043a8c7e5f7898a assets\thecure\models\block\rose_gold_block.json
 bdc2d7b489c0094136abe17a3b1040d87ef3958d assets\thecure\models\item\rose_gold_bricks.json
 2a8415fda76444c1e979d9d288af6ec820a23258 assets\thecure\models\item\rose_gold_pickaxe.json
@@ -12,17 +12,20 @@ bdc2d7b489c0094136abe17a3b1040d87ef3958d assets\thecure\models\item\rose_gold_br
 46cfe0241c644f3741977f4edccb6da4bef07e6b assets\thecure\blockstates\rose_gold_bricks.json
 ebc145b6afbd58d08676a2fd1e7a90f8e52766db assets\thecure\models\item\glass_jar.json
 ec68a2f31cfc4250f1260b010255ac7abb8fd608 assets\thecure\models\item\rose_gold_ingot.json
+ac95d9d92504ef49dbc1f7b16830791100d2e66b assets\thecure\models\item\doctors_coat.json
 0f18865165ec2ad9028ba0c8584b53e38381055b assets\thecure\models\item\glass_vial.json
 5f8100970679ab85928d14f6d493c38054795d23 assets\thecure\models\item\rose_gold_axe.json
 00d0b1aedc06533789580fb163c0eb77beec201e assets\thecure\blockstates\rose_gold_brick_slab.json
 435429bc97fccd6457446b2734259aa85cc799ab assets\thecure\models\item\sculc_acid_jar.json
 ef90f338b4817941e71bfd1b17df931b98aac728 assets\thecure\models\block\rose_gold_brick_slab_top.json
 bf05cffec846f62d3851c95a4a55b683b7914c35 assets\thecure\models\item\rose_gold_brick_stairs.json
+1816686374b4b2da46716af3e452b2217dc54c33 assets\thecure\models\item\rose_netherite_ingot.json
 64a2a3e54eeb4c6c50405bf0f9e8e89aecbb3f67 assets\thecure\models\block\rose_gold_brick_stairs.json
-89a0218ad340a3b2b486aad74e832934711b68eb assets\thecure\models\item\rose_gold_block.json
+3722c72c59be12e075bc8bbc4cd717f18bfdf1cd assets\thecure\models\item\doctors_belt.json
 2dec74b55f5e1eea9486fe0363647e2f75aa5825 assets\thecure\models\item\copper_gold_alloy.json
+89a0218ad340a3b2b486aad74e832934711b68eb assets\thecure\models\item\rose_gold_block.json
 714f557590e42a1fe25b7ac55e771d3049e667c3 assets\thecure\models\block\rose_gold_brick_stairs_inner.json
-6af2791d445c6aa47983e04f42cef8e67fa98135 assets\thecure\models\block\rose_gold_brick_slab.json
 62fb785d3d4eb7c403b35d54c1e473246a2fa728 assets\thecure\models\item\sculc_acid_vial.json
+6af2791d445c6aa47983e04f42cef8e67fa98135 assets\thecure\models\block\rose_gold_brick_slab.json
 19a5b4e3e0300211fdb10a8b5c534292b2a8c16a assets\thecure\blockstates\rose_gold_block.json
 67009c3b2b3c218686811e185f622b7c89e9784f assets\thecure\models\item\rose_gold_hoe.json

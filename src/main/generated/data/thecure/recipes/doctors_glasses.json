@@ -2,18 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "b": {
-      "item": "thecure:rose_gold_bricks"
+    "g": {
+      "item": "minecraft:glass"
+    },
+    "n": {
+      "item": "thecure:rose_netherite_ingot"
     }
   },
   "pattern": [
     "   ",
-    "bbb",
+    "gng",
     "   "
   ],
   "result": {
-    "count": 6,
-    "item": "thecure:rose_gold_brick_slab"
+    "item": "thecure:doctors_glasses"
   },
   "show_notification": true
 }

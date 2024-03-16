@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "thecure:rose_gold_axe"
-  }
+  },
+  "show_notification": true
 }

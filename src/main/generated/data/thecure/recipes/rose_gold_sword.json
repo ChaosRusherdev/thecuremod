@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "thecure:rose_gold_sword"
-  }
+  },
+  "show_notification": true
 }

@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "thecure:glass_vial"
-  }
+  },
+  "show_notification": true
 }

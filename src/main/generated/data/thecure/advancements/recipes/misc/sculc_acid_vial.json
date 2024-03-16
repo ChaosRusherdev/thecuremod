@@ -30,5 +30,6 @@
     "recipes": [
       "thecure:sculc_acid_vial"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

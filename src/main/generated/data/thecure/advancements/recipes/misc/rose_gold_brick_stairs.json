@@ -30,5 +30,6 @@
     "recipes": [
       "thecure:rose_gold_brick_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

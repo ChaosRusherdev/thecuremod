@@ -8,7 +8,8 @@ import java.util.function.Supplier;
 
 
 public enum ModToolMaterial implements ToolMaterial {
-    ROSE_GOLD(3, 1500, 10.0f, 1.5f, 28, () -> Ingredient.ofItems(ModItems.ROSE_GOLD_INGOT));
+    ROSE_GOLD(3, 1500, 10.0f, 1.5f, 28, () -> Ingredient.ofItems(ModItems.ROSE_GOLD_INGOT)),
+    ROSE_NETHERITE(5, 2000, 12.0f, 1.5f, 28, () -> Ingredient.ofItems(ModItems.ROSE_NETHERITE_INGOT));
 
     private final int miningLevel;
     private final int itemDurability;
