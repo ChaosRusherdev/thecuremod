@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "thecure:glass_jar"
-  }
+  },
+  "show_notification": true
 }

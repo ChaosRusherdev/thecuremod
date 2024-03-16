@@ -43,5 +43,6 @@
     "recipes": [
       "thecure:rose_gold_hoe"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

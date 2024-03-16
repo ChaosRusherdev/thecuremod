@@ -43,5 +43,6 @@
     "recipes": [
       "thecure:rose_gold_shovel"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

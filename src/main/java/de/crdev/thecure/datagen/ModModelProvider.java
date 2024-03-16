@@ -31,6 +31,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.COPPER_GOLD_ALLOY, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROSE_GOLD_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROSE_NETHERITE_INGOT, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCULC_ACID_JAR, Models.GENERATED);

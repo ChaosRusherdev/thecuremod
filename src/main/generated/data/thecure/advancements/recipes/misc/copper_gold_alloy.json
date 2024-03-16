@@ -30,5 +30,6 @@
     "recipes": [
       "thecure:copper_gold_alloy"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

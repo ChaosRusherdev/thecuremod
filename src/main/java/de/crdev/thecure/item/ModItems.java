@@ -23,6 +23,9 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item ROSE_GOLD_INGOT = registerItem("rose_gold_ingot",
             new Item(new FabricItemSettings()));
+    public static final Item ROSE_NETHERITE_INGOT = registerItem("rose_netherite_ingot",
+            new Item(new FabricItemSettings()));
+
     public static final Item GLASS_JAR = registerItem("glass_jar",
             new Item(new FabricItemSettings()));
     public static final Item SCULC_ACID_JAR = registerItem("sculc_acid_jar",

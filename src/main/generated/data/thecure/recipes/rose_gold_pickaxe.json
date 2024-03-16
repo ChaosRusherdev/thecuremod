@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "thecure:rose_gold_pickaxe"
-  }
+  },
+  "show_notification": true
 }
