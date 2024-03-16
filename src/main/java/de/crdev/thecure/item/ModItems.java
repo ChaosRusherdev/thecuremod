@@ -1,6 +1,7 @@
 package de.crdev.thecure.item;
 
 import de.crdev.thecure.TheCureMod;
+import de.crdev.thecure.item.custom.DoctorsArmorItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -12,7 +13,12 @@ import net.minecraft.util.Identifier;
 public class ModItems {
 
     public static final Item DOCTORS_GLASSES = registerItem("doctors_glasses",
-            new Item(new FabricItemSettings()));
+            new DoctorsArmorItem(ModArmorMaterials.ROSE_NETHERITE, ArmorItem.Type.HELMET, new FabricItemSettings().fireproof()));
+    public static final Item DOCTORS_COAT = registerItem("doctors_coat",
+            new DoctorsArmorItem(ModArmorMaterials.ROSE_NETHERITE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings().fireproof()));
+    public static final Item DOCTORS_BELT = registerItem("doctors_belt",
+            new DoctorsArmorItem(ModArmorMaterials.ROSE_NETHERITE, ArmorItem.Type.LEGGINGS, new FabricItemSettings().fireproof()));
+
     public static final Item COPPER_GOLD_ALLOY = registerItem("copper_gold_alloy",
             new Item(new FabricItemSettings()));
     public static final Item ROSE_GOLD_INGOT = registerItem("rose_gold_ingot",

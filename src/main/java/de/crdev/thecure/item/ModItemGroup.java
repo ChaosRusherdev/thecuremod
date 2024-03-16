@@ -18,6 +18,8 @@ public class ModItemGroup {
                     .icon(() -> new ItemStack(ModItems.DOCTORS_GLASSES)).entries((displayContext, entries) -> {
 
                         entries.add(ModItems.DOCTORS_GLASSES);
+                        entries.add(ModItems.DOCTORS_COAT);
+                        entries.add(ModItems.DOCTORS_BELT);
 
                         entries.add(ModItems.COPPER_GOLD_ALLOY);
                         entries.add(ModItems.ROSE_GOLD_INGOT);
