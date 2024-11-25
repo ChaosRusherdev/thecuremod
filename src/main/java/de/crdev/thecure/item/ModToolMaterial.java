@@ -2,30 +2,25 @@ package de.crdev.thecure.item;
 
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.util.Lazy;
-
-import java.util.function.Supplier;
 
 
 public enum ModToolMaterial implements ToolMaterial {
-    ROSE_GOLD(3, 1500, 10.0f, 1.5f, 28, () -> Ingredient.ofItems(ModItems.ROSE_GOLD_INGOT)),
-    ROSE_NETHERITE(5, 2000, 12.0f, 1.5f, 28, () -> Ingredient.ofItems(ModItems.ROSE_NETHERITE_INGOT));
+    ROSE_GOLD(3, 1500, 10.0f, 1.5f, 28),
+    ROSE_NETHERITE(5, 2000, 12.0f, 1.5f, 28);
 
     private final int miningLevel;
     private final int itemDurability;
     private final float miningSpeed;
     private final float attackDamage;
     private final int enchantability;
-    private final Lazy<Ingredient> repairIngredient;
 
-    private ModToolMaterial(int miningLevel, int itemDurability, float miningSpeed, float attackDamage,
-                            int enchantability, Supplier<Ingredient> repairIngredient) {
+    ModToolMaterial(int miningLevel, int itemDurability, float miningSpeed, float attackDamage,
+                    int enchantability) {
         this.miningLevel = miningLevel;
         this.itemDurability = itemDurability;
         this.miningSpeed = miningSpeed;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
-        this.repairIngredient = new Lazy<Ingredient>(repairIngredient);
     }
 
     @Override
@@ -55,7 +50,8 @@ public enum ModToolMaterial implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return this.repairIngredient.get();
+        return null;
     }
+
 }
 

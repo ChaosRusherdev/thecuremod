@@ -1,8 +1,11 @@
 package de.crdev.thecure;
 
 import de.crdev.thecure.block.ModBlocks;
+import de.crdev.thecure.effect.ModEffects;
+import de.crdev.thecure.entity.ModEntities;
 import de.crdev.thecure.item.ModItemGroup;
 import de.crdev.thecure.item.ModItems;
+import de.crdev.thecure.potion.ModPotions;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -19,5 +22,27 @@ public class TheCureMod implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 
+		//ModRegistries.registerModStuffs();
+		//ModEnchantments.registerModEnchantments();
+
+		//ModSounds.registerSounds();
+		//ModLootTableModifiers.modifyLootTables();
+
+		//ModPaintings.registerPaintings();
+		ModEffects.registerEffects();
+
+		ModPotions.registerPotions();
+		//ModParticles.registerParticles();
+
+		//ModVillagers.registerVillagers();
+		//ModFluids.registerFluids();
+
+		//ModBlockEntities.registerBlockEntities();
+		//ModScreenHandlers.registerScreenHandler();
+
+		//ModRecipes.registerRecipes();
+		//ModWorldGeneration.generateModWorldGeneration();
+
+		ModEntities.registerModEntities();
 	}
 }
