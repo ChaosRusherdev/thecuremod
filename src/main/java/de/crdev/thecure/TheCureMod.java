@@ -5,6 +5,7 @@ import de.crdev.thecure.effect.ModEffects;
 import de.crdev.thecure.entity.ModEntities;
 import de.crdev.thecure.item.ModItemGroup;
 import de.crdev.thecure.item.ModItems;
+import de.crdev.thecure.particle.ModParticles;
 import de.crdev.thecure.potion.ModPotions;
 import net.fabricmc.api.ModInitializer;
 
@@ -32,7 +33,7 @@ public class TheCureMod implements ModInitializer {
 		ModEffects.registerEffects();
 
 		ModPotions.registerPotions();
-		//ModParticles.registerParticles();
+		ModParticles.registerParticles();
 
 		//ModVillagers.registerVillagers();
 		//ModFluids.registerFluids();
