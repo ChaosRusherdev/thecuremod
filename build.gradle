@@ -13,8 +13,10 @@ group = project.maven_group
 
 repositories {
 
-	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-
+	maven {
+		name = 'GeckoLib'
+		url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+	}
 	maven {
 		url = "https://api.modrinth.com/maven"
 	}
@@ -58,7 +60,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	//GeckoLib
-	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.20.1:4.2.2'
+	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19:3.1.40'
 }
 
 processResources {
