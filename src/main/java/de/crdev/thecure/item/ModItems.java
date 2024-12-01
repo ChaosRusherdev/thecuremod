@@ -65,7 +65,7 @@ public class ModItems {
     // Special Items / Weapons
 
     public static final Item POTION_GAUNTLET = registerItem("potion_gauntlet",
-            new PotionGauntletItem());
+            new PotionGauntletItem(new FabricItemSettings().maxCount(1).group(ModItemGroup.THE_CURE_ITEM_GROUP)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(TheCureMod.MOD_ID, name), item);
