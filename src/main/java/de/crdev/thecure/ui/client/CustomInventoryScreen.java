@@ -1,8 +1,8 @@
-package de.crdev.ui.client;
+package de.crdev.thecure.ui.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import de.crdev.thecure.TheCureMod;
-import de.crdev.ui.CustomInventoryScreenHandler;
+import de.crdev.thecure.ui.CustomInventoryScreenHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;

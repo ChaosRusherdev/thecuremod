@@ -1,4 +1,4 @@
-package de.crdev.ui;
+package de.crdev.thecure.ui;
 
 import de.crdev.thecure.TheCureMod;
 import net.minecraft.screen.ScreenHandlerContext;

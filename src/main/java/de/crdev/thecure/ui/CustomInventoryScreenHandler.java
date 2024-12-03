@@ -1,4 +1,4 @@
-package de.crdev.ui;
+package de.crdev.thecure.ui;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
