@@ -3,102 +3,122 @@ package de.crdev.thecure.item.custom;
 import de.crdev.thecure.entity.custom.SculcAcidJarProjectileEntity;
 import de.crdev.thecure.item.ModItems;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
-import net.minecraft.nbt.NbtString;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
+/**
+ * Represents a custom sword-like item that allows the player to store and consume items.
+ * The gauntlet can:
+ * - Store items from the player's offhand using Shift + Right-click.
+ * - Consume the first stored item using Right-click.
+ */
 public class PotionGauntletItem extends SwordItem {
-    private final DefaultedList<ItemStack> inventory;
-    public static final String ITEMS_KEY = "Items";
+    private static final String ITEMS_KEY = "Items"; // NBT key for storing items in the gauntlet.
+    private final DefaultedList<ItemStack> inventory; // Holds the in-memory representation of the inventory.
 
+    /**
+     * Constructor for the Potion Gauntlet Item.
+     *
+     * @param toolMaterial Material type for the gauntlet.
+     * @param attackDamage Base attack damage.
+     * @param attackSpeed Attack speed modifier.
+     * @param settings Additional item settings.
+     */
     public PotionGauntletItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
-        this.inventory = DefaultedList.ofSize(9, ItemStack.EMPTY);
+        this.inventory = DefaultedList.ofSize(9, ItemStack.EMPTY); // Initializes a 9-slot inventory.
     }
 
-
+    /**
+     * Called when the player uses the item (right-clicks).
+     * Handles different behaviors based on whether the player is sneaking.
+     *
+     * @param world The game world.
+     * @param player The player using the item.
+     * @param hand The hand in which the item is held.
+     * @return The result of the action, along with the item used.
+     */
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        ItemStack itemStack = player.getStackInHand(hand);
-        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
+        ItemStack itemStack = player.getStackInHand(hand); // The gauntlet item stack.
+        NbtCompound nbtCompound = itemStack.getOrCreateNbt(); // Gets or creates the NBT data for the item.
 
-        if (!world.isClient) {
+        if (!world.isClient) { // Server-side logic only.
             if (!player.isSneaking()) {
-                // Check if the item can store items and is not full
-                if (!itemStack.isEmpty() && itemStack.getItem().canBeNested()) {
-                    if (!nbtCompound.contains(ITEMS_KEY)) {
-                        nbtCompound.put(ITEMS_KEY, new NbtList());
-                    }
-
-                    // Example: Adding a new ItemStack as NBT data
-                    NbtList itemsList = nbtCompound.getList(ITEMS_KEY, 10); // 10 = NBT compound type
-                    ItemStack newItem = new ItemStack(ModItems.SCULC_ACID_JAR); // Example item
-                    NbtCompound newItemCompound = new NbtCompound();
-                    newItem.writeNbt(newItemCompound);
-                    itemsList.add(newItemCompound);
-                    nbtCompound.put(ITEMS_KEY, itemsList);
-                }
+                handleRightClick(world, player, itemStack, nbtCompound);
             } else {
-                // Example for adding raw NBT if sneaking
-                itemStack.setSubNbt(ITEMS_KEY, NbtString.of("Test Item Added"));
+                handleShiftRightClick(player, nbtCompound);
             }
         }
 
         return TypedActionResult.success(itemStack, world.isClient);
     }
 
+    /**
+     * Handles the regular right-click action.
+     * Consumes the first stored item in the gauntlet's NBT and informs the player.
+     *
+     * @param world The game world.
+     * @param player The player using the item.
+     * @param itemStack The gauntlet item stack.
+     * @param nbtCompound The NBT compound of the gauntlet.
+     */
+    private void handleRightClick(World world, PlayerEntity player, ItemStack itemStack, NbtCompound nbtCompound) {
+        NbtList itemsList = nbtCompound.getList(ITEMS_KEY, NbtElement.COMPOUND_TYPE); // Retrieves the stored items list.
 
-    private void onShiftRightClick(PlayerEntity player, World world) {
-        world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SHULKER_BOX_OPEN, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-        player.getItemCooldownManager().set(this, 20);
+        if (!itemsList.isEmpty()) {
+            // Consume the first item in the NBT list.
+            NbtCompound firstItemCompound = itemsList.getCompound(0);
+            ItemStack consumedItem = ItemStack.fromNbt(firstItemCompound);
 
-//        player.openHandledScreen(new SimpleNamedScreenHandlerFactory(
-//                (syncId, inventory, usr) -> new CustomInventoryScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, usr.getBlockPos())),
-//                Text.literal("Gauntlet Inventory")
-//        ));
-    }
+            // Notify the player about the consumed item.
+            player.sendMessage(Text.literal("Consumed: " + consumedItem.getName().getString()), true);
 
-    private void onRightClick(World world, PlayerEntity player, Hand hand) {
-        ItemStack itemStack = player.getStackInHand(hand);
-
-        world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-        player.getItemCooldownManager().set(this, 20);
-
-        SculcAcidJarProjectileEntity sculcAcidProjectileVialEntity = new SculcAcidJarProjectileEntity(player, world);
-        sculcAcidProjectileVialEntity.setItem(ModItems.SCULC_ACID_JAR.getDefaultStack());
-        sculcAcidProjectileVialEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
-        world.spawnEntity(sculcAcidProjectileVialEntity);
-
-        player.incrementStat(Stats.USED.getOrCreateStat(this));
-        if (!player.getAbilities().creativeMode) {
-            itemStack.setDamage(itemStack.getDamage()+1);
+            // Remove the consumed item from the list.
+            itemsList.remove(0);
+            nbtCompound.put(ITEMS_KEY, itemsList); // Update the NBT.
+        } else {
+            player.sendMessage(Text.literal("No items to consume!"), true); // Inform the player if no items are stored.
         }
     }
 
-
-    public void readInventoryNbt(NbtCompound nbt) {
-        if (nbt.contains("Items", 9)) {
-            Inventories.readNbt(nbt, this.inventory);
+    /**
+     * Handles the Shift + Right-click action.
+     * Stores the item from the player's offhand into the gauntlet's NBT.
+     *
+     * @param player The player using the item.
+     * @param nbtCompound The NBT compound of the gauntlet.
+     */
+    private void handleShiftRightClick(PlayerEntity player, NbtCompound nbtCompound) {
+        if (!player.getOffHandStack().isEmpty()) { // Check if the player is holding an item in the offhand.
+            addItemToNbt(nbtCompound, player.getOffHandStack());
+            player.sendMessage(Text.literal("Item stored in gauntlet!"), true);
+        } else {
+            player.sendMessage(Text.literal("Offhand is empty. Nothing to store!"), true);
         }
-
     }
 
-    protected void writeNbt(NbtCompound nbt) {
-        Inventories.writeNbt(nbt, this.inventory, false);
+    /**
+     * Adds an item stack to the gauntlet's NBT-stored inventory.
+     *
+     * @param nbtCompound The NBT compound of the gauntlet.
+     * @param item The item stack to store.
+     */
+    private void addItemToNbt(NbtCompound nbtCompound, ItemStack item) {
+        NbtList itemsList = nbtCompound.getList(ITEMS_KEY, NbtElement.COMPOUND_TYPE); // Retrieves or creates the items list.
+        NbtCompound newItemCompound = new NbtCompound();
+        item.writeNbt(newItemCompound); // Write the item data into the NBT compound.
+
+        itemsList.add(newItemCompound); // Add the new item to the list.
+        nbtCompound.put(ITEMS_KEY, itemsList); // Update the NBT with the new list.
     }
 }
-
