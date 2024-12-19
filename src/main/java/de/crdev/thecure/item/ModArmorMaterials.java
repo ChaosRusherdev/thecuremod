@@ -1,6 +1,7 @@
 package de.crdev.thecure.item;
 
 import de.crdev.thecure.TheCureMod;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ArmorMaterials;
@@ -42,13 +43,16 @@ public enum ModArmorMaterials implements ArmorMaterial {
     }
 
     @Override
-    public int getDurability(ArmorItem.Type type) {
-        return BASE_DURABILITY[type.ordinal()] * this.durabilityMultiplier;
+    public int getDurability(EquipmentSlot slot) {
+        if(slot.getEntitySlotId() <= 0) return 1;
+        return BASE_DURABILITY[slot.getEntitySlotId()-1];
     }
 
     @Override
-    public int getProtection(ArmorItem.Type type) {
-        return protectionAmounts[type.ordinal()];
+    public int getProtectionAmount(EquipmentSlot slot) {
+        if(slot.getEntitySlotId() <= 0) return 1;
+        return protectionAmounts[slot.getEntitySlotId()-1];
+
     }
 
     @Override

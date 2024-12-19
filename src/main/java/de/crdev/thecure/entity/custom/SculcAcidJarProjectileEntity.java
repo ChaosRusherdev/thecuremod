@@ -2,14 +2,15 @@ package de.crdev.thecure.entity.custom;
 
 import de.crdev.thecure.effect.ModEffects;
 import de.crdev.thecure.entity.ModEntities;
+import de.crdev.thecure.particle.ModParticles;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
+import net.minecraft.network.Packet;
 import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
@@ -24,10 +25,11 @@ public class SculcAcidJarProjectileEntity extends ThrownItemEntity {
         super(ModEntities.THROWN_SCULC_ACID_VIAL_PROJECTILE,livingEntity, world);
     }
 
-    @Override
-    public Packet<ClientPlayPacketListener> createSpawnPacket() {
-        return new EntitySpawnS2CPacket(this);
-    }
+
+//    @Override
+//    public Packet<ClientPlayPacketListener> createSpawnPacket() {
+//        return new EntitySpawnS2CPacket(this);
+//    }
 
     @Override
     protected Item getDefaultItem() {
@@ -57,6 +59,7 @@ public class SculcAcidJarProjectileEntity extends ThrownItemEntity {
             effectCloud.setDuration(120); // Duration in ticks (200 ticks = 10 seconds)
 
             effectCloud.addEffect(new StatusEffectInstance(ModEffects.SCULC_ACID, 100, 0)); // 5 seconds of Slowness II
+            effectCloud.setParticleType(ModParticles.SCULC_ACID_PARTICLE);
 
             // Add the cloud to the world
             world.spawnEntity(effectCloud);
