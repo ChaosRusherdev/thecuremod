@@ -112,11 +112,17 @@ public class PotionGauntletItem extends SwordItem {
      * @param nbtCompound The NBT compound of the gauntlet.
      */
     private void handleShiftRightClick(PlayerEntity player, NbtCompound nbtCompound) {
-        if (!player.getOffHandStack().isEmpty()) { // Check if the player is holding an item in the offhand.
-            if(!player.isCreative()) player.getOffHandStack().decrement(1);
-            addItemToNbt(nbtCompound, player.getOffHandStack());
-            player.sendMessage(Text.literal("Item stored in gauntlet!"), true);
-        } else {
+        ItemStack itemStack = player.getOffHandStack();
+        if(!itemStack.isEmpty()) {
+            if (itemStack.hasNbt() && itemStack.getOrCreateNbt().contains("Potion") ) { // Check if the player is holding an item in the offhand.
+                if(!player.isCreative()) itemStack.decrement(1);
+                addItemToNbt(nbtCompound, itemStack);
+                player.sendMessage(Text.literal("Item stored in gauntlet!"), true);
+            } else {
+                player.sendMessage(Text.literal("You can only store Potions in here!"), true);
+            }
+        }
+        else {
             player.sendMessage(Text.literal("Offhand is empty. Nothing to store!"), true);
         }
     }
