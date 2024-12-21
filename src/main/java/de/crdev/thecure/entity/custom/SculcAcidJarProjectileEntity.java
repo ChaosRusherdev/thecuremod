@@ -25,12 +25,6 @@ public class SculcAcidJarProjectileEntity extends ThrownItemEntity {
         super(ModEntities.THROWN_SCULC_ACID_VIAL_PROJECTILE,livingEntity, world);
     }
 
-
-//    @Override
-//    public Packet<ClientPlayPacketListener> createSpawnPacket() {
-//        return new EntitySpawnS2CPacket(this);
-//    }
-
     @Override
     protected Item getDefaultItem() {
         return null;
@@ -65,5 +59,4 @@ public class SculcAcidJarProjectileEntity extends ThrownItemEntity {
             world.spawnEntity(effectCloud);
         }
     }
-
 }

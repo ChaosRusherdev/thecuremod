@@ -1,4 +1,4 @@
-package de.crdev.thecure.item.custom;
+package de.crdev.thecure.item.custom.potions;
 
 import de.crdev.thecure.entity.custom.SculcAcidJarProjectileEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,7 +11,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class SculcAcidJarItem extends Item{
+public class SculcAcidJarItem extends Item implements CustomPotionItem{
     public SculcAcidJarItem(Item.Settings settings) {
         super(settings);
     }
@@ -33,6 +33,17 @@ public class SculcAcidJarItem extends Item{
         }
 
         return TypedActionResult.success(itemStack, world.isClient());
+    }
+
+    @Override
+    public void onCraft(ItemStack stack, World world, PlayerEntity player) {
+        super.onCraft(stack, world, player);
+        stack.getOrCreateNbt().putString("Potion", getPotionId());
+    }
+
+    @Override
+    public String getPotionId() {
+        return "thecure:sculc_acid_jar";
     }
 }
 

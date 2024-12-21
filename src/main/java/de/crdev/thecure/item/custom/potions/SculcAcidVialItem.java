@@ -1,6 +1,5 @@
-package de.crdev.thecure.item.custom;
+package de.crdev.thecure.item.custom.potions;
 
-import de.crdev.thecure.entity.custom.SculcAcidJarProjectileEntity;
 import de.crdev.thecure.entity.custom.SculcAcidVialProjectileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -12,7 +11,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class SculcAcidVialItem extends Item {
+public class SculcAcidVialItem extends Item implements CustomPotionItem {
     public SculcAcidVialItem(Settings settings) {
         super(settings);
     }
@@ -34,5 +33,16 @@ public class SculcAcidVialItem extends Item {
         }
 
         return TypedActionResult.success(itemStack, world.isClient());
+    }
+
+    @Override
+    public void onCraft(ItemStack stack, World world, PlayerEntity player) {
+        super.onCraft(stack, world, player);
+        stack.getOrCreateNbt().putString("Potion", getPotionId());
+    }
+
+    @Override
+    public String getPotionId() {
+        return "thecure:sculc_acid_vial";
     }
 }
