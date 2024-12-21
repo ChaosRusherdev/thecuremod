@@ -69,6 +69,16 @@ public class ModItems {
                     ToolMaterials.NETHERITE, 5, -3f, new FabricItemSettings()
                     .group(ModItemGroup.THE_CURE_ITEM_GROUP)));
 
+
+
+    // Util items for display purposes only
+
+    public static final Item EFFECT_BUBBLE = registerItem("effect_bubble",
+            new Item(new FabricItemSettings()));
+
+
+    // Helper fuctions
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(TheCureMod.MOD_ID, name), item);
     }

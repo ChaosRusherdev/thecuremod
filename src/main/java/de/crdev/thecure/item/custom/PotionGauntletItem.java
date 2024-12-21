@@ -1,5 +1,6 @@
 package de.crdev.thecure.item.custom;
 
+import de.crdev.thecure.entity.custom.EffectBubbleProjectileEntity;
 import de.crdev.thecure.entity.custom.SculcAcidJarProjectileEntity;
 import de.crdev.thecure.item.ModItems;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,6 +10,8 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -82,12 +85,22 @@ public class PotionGauntletItem extends SwordItem {
 
             // Notify the player about the consumed item.
             player.sendMessage(Text.literal("Consumed: " + consumedItem.getName().getString()), true);
+            ThrowEffectBubble(world, player);
 
             // Remove the consumed item from the list.
             itemsList.remove(0);
             nbtCompound.put(ITEMS_KEY, itemsList); // Update the NBT.
         } else {
             player.sendMessage(Text.literal("No items to consume!"), true); // Inform the player if no items are stored.
+        }
+    }
+    private void ThrowEffectBubble(World world, PlayerEntity player) {
+        world.playSound((PlayerEntity)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+        if (!world.isClient) {
+            EffectBubbleProjectileEntity effectBubbleProjectileEntity = new EffectBubbleProjectileEntity(player, world);
+            effectBubbleProjectileEntity.setItem(ModItems.EFFECT_BUBBLE.getDefaultStack());
+            effectBubbleProjectileEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
+            world.spawnEntity(effectBubbleProjectileEntity);
         }
     }
 
@@ -100,6 +113,7 @@ public class PotionGauntletItem extends SwordItem {
      */
     private void handleShiftRightClick(PlayerEntity player, NbtCompound nbtCompound) {
         if (!player.getOffHandStack().isEmpty()) { // Check if the player is holding an item in the offhand.
+            if(!player.isCreative()) player.getOffHandStack().decrement(1);
             addItemToNbt(nbtCompound, player.getOffHandStack());
             player.sendMessage(Text.literal("Item stored in gauntlet!"), true);
         } else {

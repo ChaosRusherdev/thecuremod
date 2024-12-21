@@ -1,6 +1,7 @@
 package de.crdev.thecure.entity;
 
 import de.crdev.thecure.TheCureMod;
+import de.crdev.thecure.entity.custom.EffectBubbleProjectileEntity;
 import de.crdev.thecure.entity.custom.SculcAcidJarProjectileEntity;
 import de.crdev.thecure.entity.custom.SculcAcidVialProjectileEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -20,6 +21,11 @@ public class ModEntities {
     public static final EntityType<SculcAcidVialProjectileEntity> THROWN_SCULC_ACID_VIAL_PROJECTILE = Registry.register(Registry.ENTITY_TYPE,
         new Identifier(TheCureMod.MOD_ID, "sculc_acid_vial_projectile"),
             FabricEntityTypeBuilder.<SculcAcidVialProjectileEntity>create(SpawnGroup.CREATURE, SculcAcidVialProjectileEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build());
+
+    public static final EntityType<EffectBubbleProjectileEntity> THROWN_EFFECT_BUBBLE_PROJECTILE = Registry.register(Registry.ENTITY_TYPE,
+            new Identifier(TheCureMod.MOD_ID, "effect_bubble_projectile"),
+            FabricEntityTypeBuilder.<EffectBubbleProjectileEntity>create(SpawnGroup.CREATURE, EffectBubbleProjectileEntity::new)
                     .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build());
 
     public static void registerModEntities() {
