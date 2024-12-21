@@ -1,12 +1,10 @@
 package de.crdev.thecure;
 
 import de.crdev.thecure.entity.client.armor.DoctorsArmorRenderer;
-import de.crdev.thecure.entity.custom.EffectBubbleProjectileEntity;
 import de.crdev.thecure.item.ModItems;
 import de.crdev.thecure.particle.ModParticles;
 import de.crdev.thecure.particle.SculcAcidParticle;
-import de.crdev.thecure.ui.ScreenHandlers;
-import de.crdev.thecure.ui.client.CustomInventoryScreen;
+
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -28,7 +26,6 @@ public class TheCureModClient implements ClientModInitializer {
 
         GeoArmorRenderer.registerArmorRenderer(new DoctorsArmorRenderer(), ModItems.DOCTORS_GLASSES,
                 ModItems.DOCTORS_COAT, ModItems.DOCTORS_BELT);
-        ScreenRegistry.register(ScreenHandlers.CUSTOM_INVENTORY_SCREEN_HANDLER, CustomInventoryScreen::new);
     }
 
 }

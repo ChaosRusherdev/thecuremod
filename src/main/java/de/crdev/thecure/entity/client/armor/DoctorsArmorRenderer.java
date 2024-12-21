@@ -1,6 +1,6 @@
 package de.crdev.thecure.entity.client.armor;
 
-import de.crdev.thecure.item.custom.DoctorsArmorItem;
+import de.crdev.thecure.item.custom.armor.DoctorsArmorItem;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 public class DoctorsArmorRenderer extends GeoArmorRenderer<DoctorsArmorItem> {

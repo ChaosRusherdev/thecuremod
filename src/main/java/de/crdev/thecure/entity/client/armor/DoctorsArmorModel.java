@@ -1,7 +1,7 @@
 package de.crdev.thecure.entity.client.armor;
 
 import de.crdev.thecure.TheCureMod;
-import de.crdev.thecure.item.custom.DoctorsArmorItem;
+import de.crdev.thecure.item.custom.armor.DoctorsArmorItem;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

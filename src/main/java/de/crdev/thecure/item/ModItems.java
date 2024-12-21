@@ -2,6 +2,7 @@ package de.crdev.thecure.item;
 
 import de.crdev.thecure.TheCureMod;
 import de.crdev.thecure.item.custom.*;
+import de.crdev.thecure.item.custom.armor.DoctorsArmorItem;
 import de.crdev.thecure.item.custom.potions.SculcAcidJarItem;
 import de.crdev.thecure.item.custom.potions.SculcAcidVialItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -68,7 +69,7 @@ public class ModItems {
 
     public static final Item POTION_GAUNTLET = registerItem("potion_gauntlet",
             new PotionGauntletItem(
-                    ToolMaterials.NETHERITE, 5, -3f, new FabricItemSettings()
+                    new FabricItemSettings()
                     .group(ModItemGroup.THE_CURE_ITEM_GROUP)));
 
 
@@ -78,6 +79,8 @@ public class ModItems {
     public static final Item EFFECT_BUBBLE = registerItem("effect_bubble",
             new Item(new FabricItemSettings()));
 
+    public static final Item TEST_ITEM = registerItem("test_item",
+            new TestItem(new FabricItemSettings()));
 
     // Helper fuctions
 

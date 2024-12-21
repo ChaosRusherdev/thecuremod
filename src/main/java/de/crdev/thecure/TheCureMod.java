@@ -3,7 +3,6 @@ package de.crdev.thecure;
 import de.crdev.thecure.block.ModBlocks;
 import de.crdev.thecure.effect.ModEffects;
 import de.crdev.thecure.entity.ModEntities;
-import de.crdev.thecure.item.ModItemGroup;
 import de.crdev.thecure.item.ModItems;
 import de.crdev.thecure.particle.ModParticles;
 import de.crdev.thecure.potion.ModPotions;

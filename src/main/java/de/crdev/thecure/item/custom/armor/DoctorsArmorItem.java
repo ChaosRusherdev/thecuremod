@@ -1,4 +1,4 @@
-package de.crdev.thecure.item.custom;
+package de.crdev.thecure.item.custom.armor;
 
 import de.crdev.thecure.item.ModItems;
 import net.minecraft.entity.EquipmentSlot;
