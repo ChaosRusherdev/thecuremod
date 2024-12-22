@@ -8,7 +8,6 @@ import de.crdev.thecure.particle.SculcAcidParticle;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
@@ -22,7 +21,10 @@ public class TheCureModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(THROWN_EFFECT_BUBBLE_PROJECTILE, FlyingItemEntityRenderer::new);
 
-        ParticleFactoryRegistry.getInstance().register(ModParticles.SCULC_ACID_PARTICLE, SculcAcidParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(
+                ModParticles.SCULC_ACID_PARTICLE,
+                SculcAcidParticle.Factory::new
+        );
 
         GeoArmorRenderer.registerArmorRenderer(new DoctorsArmorRenderer(), ModItems.DOCTORS_GLASSES,
                 ModItems.DOCTORS_COAT, ModItems.DOCTORS_BELT);

@@ -1,5 +1,9 @@
 {
-  "textures": [
-    "thecure:sculc_acid"
-  ]
+    "textures": [
+      "thecure:sculc_acid_0",
+      "thecure:sculc_acid_1",
+      "thecure:sculc_acid_2",
+      "thecure:sculc_acid_3",
+      "thecure:sculc_acid_4"
+    ]
 }

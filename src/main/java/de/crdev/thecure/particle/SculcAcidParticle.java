@@ -1,53 +1,52 @@
 package de.crdev.thecure.particle;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
 
 public class SculcAcidParticle extends SpriteBillboardParticle {
-    private float _scale = 0.25f;
-    private int _maxAge = 2;
-    public SculcAcidParticle(ClientWorld world, double xCoord, double yCoord, double zCoord,
-                                 SpriteProvider spriteSet, double xd, double yd, double zd) {
-        super(world, xCoord, yCoord, zCoord, xd, yd, zd);
+    private final SpriteProvider spriteProvider;
 
-        this.velocityMultiplier = 0.2f;
-        this.velocityX = xd;
-        this.velocityY = yd;
-        this.velocityZ = zd;
-
-        this.scale += _scale;
-        this.maxAge = _maxAge;
-        this.setSpriteForAge(spriteSet);
-    }
-    public void setScale(float _scale) {
-        this._scale = _scale;
-    }
-    public float getScale() {
-        return this._scale;
-    }
-    public void setMaxAge(int _maxAge) {
-        this._maxAge = _maxAge;
-    }
-    public int getMaxAge() {
-        return this._maxAge;
+    protected SculcAcidParticle(ClientWorld world, double x, double y, double z, double d, SpriteProvider spriteProvider) {
+        super(world, x, y, z, (double)0.0F, (double)0.0F, (double)0.0F);
+        this.maxAge = 6 + this.random.nextInt(4);
+        float f = this.random.nextFloat() * 0.6F + 0.4F;
+        this.red = f;
+        this.green = f;
+        this.blue = f;
+        this.scale = 0.3F * (1.0F - (float)d * 0.5F);
+        this.spriteProvider = spriteProvider;
+        this.setSpriteForAge(spriteProvider);
     }
 
+    public void tick() {
+        this.prevPosX = this.x;
+        this.prevPosY = this.y;
+        this.prevPosZ = this.z;
+        if (this.age++ >= this.maxAge) {
+            this.markDead();
+        } else {
+            this.setSpriteForAge(this.spriteProvider);
+        }
+    }
 
     @Override
     public ParticleTextureSheet getType() {
         return ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT;
     }
 
+    @Environment(EnvType.CLIENT)
     public static class Factory implements ParticleFactory<DefaultParticleType> {
-        private final SpriteProvider sprites;
+        private final SpriteProvider spriteProvider;
 
         public Factory(SpriteProvider spriteProvider) {
-            this.sprites = spriteProvider;
+            this.spriteProvider = spriteProvider;
         }
-        public Particle createParticle(DefaultParticleType particleType, ClientWorld clientWorld,
-                                       double x, double y, double z, double xd, double yd, double zd) {
-            return new SculcAcidParticle(clientWorld, x, y, z, this.sprites, xd, yd, zd);
+
+        public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
+            return new SculcAcidParticle(clientWorld, d, e, f, g, this.spriteProvider);
         }
     }
 }
