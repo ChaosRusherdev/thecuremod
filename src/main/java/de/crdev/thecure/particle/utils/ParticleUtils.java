@@ -1,17 +1,16 @@
 package de.crdev.thecure.particle.utils;
 
-import de.crdev.thecure.particle.ModParticles;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.world.World;
 
 public class ParticleUtils {
 
-    public static void spawnFluidParticleSphere(World world, PlayerEntity player, float radius) {
+    public static void spawnParticleSphere(World world, PlayerEntity player, float radius,
+                                           int particleCount, ParticleEffect particleEffect) {
         double centerX = player.getX();
         double centerY = player.getY() + 1; // Adjust for player height
         double centerZ = player.getZ();
-
-        int particleCount = 100;
 
         // Gradual appearance and fading of particles
         for (int i = 0; i < particleCount; i++) {
@@ -30,18 +29,17 @@ public class ParticleUtils {
             float velocityZ = (float) (Math.random() * 0.05 - 0.025);
 
             // Spawn particle with a gradual fade and longer lifespan
-            world.addParticle(ModParticles.SCULC_ACID_PARTICLE,
+            world.addParticle(particleEffect,
                     x, y, z,
                     velocityX, velocityY, velocityZ);
         }
     }
 
-    public static void spawnParticleCube(World world, PlayerEntity player, float radius) {
+    public static void spawnParticleCube(World world, PlayerEntity player, float radius,
+                                         int particleCountPerSide, ParticleEffect particleEffect) {
         double centerX = player.getX();
         double centerY = player.getY() + 1; // Adjust for player height
         double centerZ = player.getZ();
-
-        int particleCountPerSide = 10;
 
         for (int x = 0; x < particleCountPerSide; x++) {
             for (int y = 0; y < particleCountPerSide; y++) {
@@ -51,7 +49,7 @@ public class ParticleUtils {
                     double offsetZ = z * (2 * radius / particleCountPerSide) - radius;
 
                     // Spawn the particle at the calculated position
-                    world.addParticle(ModParticles.SCULC_ACID_PARTICLE,
+                    world.addParticle(particleEffect,
                             centerX + offsetX,
                             centerY + offsetY,
                             centerZ + offsetZ,

@@ -17,18 +17,20 @@ public class SculcAcidJarItem extends Item implements CustomPotionItem{
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-        world.playSound((PlayerEntity)null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+        player.getItemCooldownManager().set(this, 20);
+
+        ItemStack itemStack = player.getStackInHand(hand);
+        world.playSound((PlayerEntity)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!world.isClient) {
-            SculcAcidJarProjectileEntity sculcAcidProjectileVialEntity = new SculcAcidJarProjectileEntity(user, world);
+            SculcAcidJarProjectileEntity sculcAcidProjectileVialEntity = new SculcAcidJarProjectileEntity(player, world);
             sculcAcidProjectileVialEntity.setItem(itemStack);
-            sculcAcidProjectileVialEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);
+            sculcAcidProjectileVialEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
             world.spawnEntity(sculcAcidProjectileVialEntity);
         }
 
-        user.incrementStat(Stats.USED.getOrCreateStat(this));
-        if (!user.getAbilities().creativeMode) {
+        player.incrementStat(Stats.USED.getOrCreateStat(this));
+        if (!player.getAbilities().creativeMode) {
             itemStack.decrement(1);
         }
 

@@ -1,5 +1,6 @@
 package de.crdev.thecure.item.custom;
 
+import de.crdev.thecure.particle.ModParticles;
 import de.crdev.thecure.particle.utils.ParticleUtils;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -16,7 +17,7 @@ public class TestItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        ParticleUtils.spawnFluidParticleSphere(world, player, 5f);
+        ParticleUtils.spawnParticleSphere(world, player, 10f, 400, ModParticles.SCULC_ACID_PARTICLE);
 
         return super.use(world, player, hand);
     }

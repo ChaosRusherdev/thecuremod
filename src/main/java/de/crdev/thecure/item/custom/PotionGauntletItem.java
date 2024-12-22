@@ -49,6 +49,8 @@ public class PotionGauntletItem extends Item {
         ItemStack itemStack = player.getStackInHand(hand); // The gauntlet item stack.
         NbtCompound nbtCompound = itemStack.getOrCreateNbt(); // Gets or creates the NBT data for the item.
 
+        player.getItemCooldownManager().set(this, 20);
+
         if (!world.isClient) { // Server-side logic only.
             if (!player.isSneaking()) {
                 handleRightClick(world, player, itemStack, nbtCompound);
