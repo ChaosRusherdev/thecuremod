@@ -2,15 +2,16 @@ package de.crdev.thecure.particle.utils;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleEffect;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ParticleUtils {
 
-    public static void spawnParticleSphere(World world, PlayerEntity player, float radius,
+    public static void spawnParticleSphere(World world, BlockPos pos, float radius,
                                            int particleCount, ParticleEffect particleEffect) {
-        double centerX = player.getX();
-        double centerY = player.getY() + 1; // Adjust for player height
-        double centerZ = player.getZ();
+        double centerX = pos.getX();
+        double centerY = pos.getY() + 1; // Adjust for player height
+        double centerZ = pos.getZ();
 
         // Gradual appearance and fading of particles
         for (int i = 0; i < particleCount; i++) {
@@ -28,8 +29,7 @@ public class ParticleUtils {
             float velocityY = (float) (Math.random() * 0.05 - 0.025);
             float velocityZ = (float) (Math.random() * 0.05 - 0.025);
 
-            // Spawn particle with a gradual fade and longer lifespan
-            world.addParticle(particleEffect,
+            world.addParticle( particleEffect,
                     x, y, z,
                     velocityX, velocityY, velocityZ);
         }

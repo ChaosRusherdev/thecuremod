@@ -10,6 +10,8 @@ public class ModParticles {
 
     public static final DefaultParticleType SCULC_ACID_PARTICLE =
             registerParticle("sculc_acid_particle", FabricParticleTypes.simple());
+    public static final DefaultParticleType CUSTOMIZABLE_PARTICLE =
+            registerParticle("customizable_particle", FabricParticleTypes.simple());
 
     private static DefaultParticleType registerParticle(String name, DefaultParticleType particleType) {
         return Registry.register(Registry.PARTICLE_TYPE, new Identifier(TheCureMod.MOD_ID, name), particleType);

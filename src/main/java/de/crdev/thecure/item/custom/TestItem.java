@@ -17,9 +17,9 @@ public class TestItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        ParticleUtils.spawnParticleSphere(world, player, 10f, 400, ModParticles.SCULC_ACID_PARTICLE);
+        ParticleUtils.spawnParticleSphere(world, player.getBlockPos(), 10f, 1600, ModParticles.CUSTOMIZABLE_PARTICLE);
 
         return super.use(world, player, hand);
-    }
+    } //
 
 }

@@ -70,7 +70,8 @@ public class ModItems {
     public static final Item POTION_GAUNTLET = registerItem("potion_gauntlet",
             new PotionGauntletItem(
                     new FabricItemSettings()
-                    .group(ModItemGroup.THE_CURE_ITEM_GROUP)));
+                            .maxCount(1)
+                            .group(ModItemGroup.THE_CURE_ITEM_GROUP)));
 
 
 

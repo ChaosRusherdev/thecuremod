@@ -53,7 +53,7 @@ public class PotionGauntletItem extends Item {
 
         if (!world.isClient) { // Server-side logic only.
             if (!player.isSneaking()) {
-                handleRightClick(world, player, itemStack, nbtCompound);
+                handleRightClick(world, player, nbtCompound);
             } else {
                 handleShiftRightClick(player, nbtCompound);
             }
@@ -75,10 +75,9 @@ public class PotionGauntletItem extends Item {
      *
      * @param world The game world.
      * @param player The player using the item.
-     * @param itemStack The gauntlet item stack.
      * @param nbtCompound The NBT compound of the gauntlet.
      */
-    private void handleRightClick(World world, PlayerEntity player, ItemStack itemStack, NbtCompound nbtCompound) {
+    private void handleRightClick(World world, PlayerEntity player, NbtCompound nbtCompound) {
         NbtList itemsList = nbtCompound.getList(ITEMS_KEY, NbtElement.COMPOUND_TYPE);
 
         if (itemsList.isEmpty()) {
@@ -101,7 +100,7 @@ public class PotionGauntletItem extends Item {
     }
 
     private void ThrowEffectBubble(World world, PlayerEntity player) {
-        world.playSound((PlayerEntity)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+        world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!world.isClient) {
             EffectBubbleProjectileEntity effectBubbleProjectileEntity = new EffectBubbleProjectileEntity(player, world);
             effectBubbleProjectileEntity.setItem(ModItems.EFFECT_BUBBLE.getDefaultStack());
