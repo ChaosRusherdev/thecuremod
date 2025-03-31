@@ -28,7 +28,7 @@ public class EffectBubbleProjectileEntity extends ThrownItemEntity {
     @Override
     protected void onBlockCollision(BlockState state) {
         if (!state.isAir()) {
-            if(createSphere) ParticleUtils.spawnParticleSphere(world, getBlockPos(), 10f, 400, ModParticles.SCULC_ACID_PARTICLE);
+            if(createSphere) ParticleUtils.spawnParticleSphere(world, getBlockPos(), 10f, 400, ModParticles.CUSTOMIZABLE_PARTICLE);
             createSphere = false;
         }
 

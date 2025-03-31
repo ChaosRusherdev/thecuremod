@@ -3,6 +3,7 @@ package de.crdev.thecure.item;
 import de.crdev.thecure.TheCureMod;
 import de.crdev.thecure.item.custom.*;
 import de.crdev.thecure.item.custom.armor.DoctorsArmorItem;
+import de.crdev.thecure.item.custom.potiongauntlet.PotionGauntletItem;
 import de.crdev.thecure.item.custom.potions.SculcAcidJarItem;
 import de.crdev.thecure.item.custom.potions.SculcAcidVialItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
