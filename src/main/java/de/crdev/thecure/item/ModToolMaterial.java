@@ -1,7 +1,9 @@
 package de.crdev.thecure.item;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.tag.TagKey;
 
 
 public enum ModToolMaterial implements ToolMaterial {
@@ -39,8 +41,8 @@ public enum ModToolMaterial implements ToolMaterial {
     }
 
     @Override
-    public int getMiningLevel() {
-        return this.miningLevel;
+    public TagKey<Block> getInverseTag() {
+        return null;
     }
 
     @Override

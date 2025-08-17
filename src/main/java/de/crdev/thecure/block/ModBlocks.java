@@ -1,37 +1,46 @@
 package de.crdev.thecure.block;
 
 import de.crdev.thecure.TheCureMod;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
 
-    public static final Block ROSE_GOLD_BLOCK = registerBlock("rose_gold_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+    public static final Block ROSE_GOLD_BLOCK = registerBlockItem(
+            "rose_gold_block",
+            new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)),
+            true);
+
+    public static final Block ROSE_GOLD_BRICKS = registerBlockItem(
+            "rose_gold_bricks",
+            new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)),
+            true);
+
+    public static final Block ROSE_GOLD_BRICK_STAIRS = registerBlockItem(
+            "rose_gold_brick_stairs",
+            new StairsBlock(ModBlocks.ROSE_GOLD_BRICKS.getDefaultState(), AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)),
+            true
+    );
+    public static final Block ROSE_GOLD_BRICK_SLAB = registerBlockItem(
+            "rose_gold_brick_slab",
+            new SlabBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)),
+            true);
 
 
+    private static Block registerBlockItem(String name, Block block, boolean shouldRegisterItem) {
+        Identifier id = Identifier.of(TheCureMod.MOD_ID, name);
 
-    public static final Block ROSE_GOLD_BRICKS = registerBlock("rose_gold_bricks",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
-    public static final Block ROSE_GOLD_BRICK_STAIRS = registerBlock("rose_gold_brick_stairs",
-            new StairsBlock(ModBlocks.ROSE_GOLD_BRICKS.getDefaultState(), FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
-    public static final Block ROSE_GOLD_BRICK_SLAB = registerBlock("rose_gold_brick_slab",
-            new SlabBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+        if (shouldRegisterItem) {
+            BlockItem blockItem = new BlockItem(block, new Item.Settings());
+            Registry.register(Registries.ITEM, id, blockItem);
+        }
 
-    private static Block registerBlock(String name, Block block) {
-        registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(TheCureMod.MOD_ID, name), block);
-    }
-
-    private static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(TheCureMod.MOD_ID, name),
-                new BlockItem(block, new FabricItemSettings()));
+        return Registry.register(Registries.BLOCK, id, block);
     }
 
     public static void registerModBlocks() {

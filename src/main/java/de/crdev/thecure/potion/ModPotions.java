@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 public class ModPotions {
 
     private static Potion registerPotion(String name, Potion potion) {
-        return Registry.register(Registries.POTION, new Identifier(TheCureMod.MOD_ID, name), potion);
+        return Registry.register(Registries.POTION, Identifier.of(TheCureMod.MOD_ID, name), potion);
     }
 
     public static void registerPotions() {

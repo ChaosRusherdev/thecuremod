@@ -2,6 +2,7 @@ package de.crdev.thecure.item.custom;
 
 import de.crdev.thecure.item.client.DoctorsArmorRenderer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
+import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ArmorItem;
@@ -9,6 +10,7 @@ import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.client.RenderProvider;
+import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
@@ -60,6 +62,12 @@ public class DoctorsArmorItem extends ArmorItem implements GeoItem {
         animationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
     }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+
+    }
+
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;

@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroup {
     public static final ItemGroup THE_CURE_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(TheCureMod.MOD_ID, "the_cure_group"),
+            Identifier.of(TheCureMod.MOD_ID, "the_cure_group"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.the_cure_group"))
                     .icon(() -> new ItemStack(ModItems.DOCTORS_GLASSES)).entries((displayContext, entries) -> {
 
