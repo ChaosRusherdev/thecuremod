@@ -25,11 +25,6 @@ public class SculcAcidVialProjectileEntity  extends ThrownItemEntity {
     }
 
     @Override
-    public Packet<ClientPlayPacketListener> createSpawnPacket() {
-        return new EntitySpawnS2CPacket(this);
-    }
-
-    @Override
     protected Item getDefaultItem() {
         return null;
     }
@@ -38,8 +33,8 @@ public class SculcAcidVialProjectileEntity  extends ThrownItemEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
-            target.addStatusEffect(new StatusEffectInstance(ModEffects.SCULC_ACID, 100, 0));
-        }
+            var instance = new StatusEffectInstance(ModEffects.SCULC_ACID, 5 * 20, 0, false, true, true);
+            target.addStatusEffect(instance);        }
     }
 
     @Override

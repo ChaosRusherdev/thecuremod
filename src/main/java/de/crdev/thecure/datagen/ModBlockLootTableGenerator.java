@@ -3,10 +3,13 @@ package de.crdev.thecure.datagen;
 import de.crdev.thecure.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.registry.RegistryWrapper;
+
+import java.util.concurrent.CompletableFuture;
 
 public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
-    public ModBlockLootTableGenerator(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    public ModBlockLootTableGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
     }
 
     @Override

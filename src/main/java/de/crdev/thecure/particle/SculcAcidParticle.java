@@ -2,11 +2,12 @@ package de.crdev.thecure.particle;
 
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.particle.SimpleParticleType;
 
 public class SculcAcidParticle extends SpriteBillboardParticle {
+    // Constructor remains the same
     public SculcAcidParticle(ClientWorld world, double xCoord, double yCoord, double zCoord,
-                                 SpriteProvider spriteSet, double xd, double yd, double zd) {
+                             SpriteProvider spriteSet, double xd, double yd, double zd) {
         super(world, xCoord, yCoord, zCoord, xd, yd, zd);
 
         this.velocityMultiplier = 0.5f;
@@ -24,13 +25,14 @@ public class SculcAcidParticle extends SpriteBillboardParticle {
         return ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT;
     }
 
-    public static class Factory implements ParticleFactory<DefaultParticleType> {
+    public static class Factory implements ParticleFactory<SimpleParticleType> {
         private final SpriteProvider sprites;
 
         public Factory(SpriteProvider spriteProvider) {
             this.sprites = spriteProvider;
         }
-        public Particle createParticle(DefaultParticleType particleType, ClientWorld clientWorld,
+
+        public Particle createParticle(SimpleParticleType particleType, ClientWorld clientWorld,
                                        double x, double y, double z, double xd, double yd, double zd) {
             return new SculcAcidParticle(clientWorld, x, y, z, this.sprites, xd, yd, zd);
         }
