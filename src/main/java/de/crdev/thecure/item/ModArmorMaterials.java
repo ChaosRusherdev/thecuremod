@@ -3,81 +3,54 @@ package de.crdev.thecure.item;
 import de.crdev.thecure.TheCureMod;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.ArmorMaterials;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Lazy;
-import net.minecraft.util.StringIdentifiable;
-import net.minecraft.util.Util;
+import net.minecraft.util.Identifier;
 
-import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
-public enum ModArmorMaterials implements ArmorMaterial {
-    ROSE_NETHERITE("rose_netherite", 20, new int[] { 6, 8, 4}, 20,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(ModItems.ROSE_GOLD_INGOT));
+public class ModArmorMaterials {
+    public static final int ROSE_NETHERITE_DURABILITY_MULTIPLIER = 20;
 
-    private final String name;
-    private final int durabilityMultiplier;
-    private final int[] protectionAmounts;
-    private final int enchantability;
-    private final SoundEvent equipSound;
-    private final float toughness;
-    private final float knockbackResistance;
-    private final Supplier<Ingredient> repairIngredient;
+    public static final RegistryEntry<ArmorMaterial> ROSE_NETHERITE = registerMaterial("rose_netherite",
+            Map.of(
+                    ArmorItem.Type.HELMET, 6,
+                    ArmorItem.Type.CHESTPLATE, 8,
+                    ArmorItem.Type.LEGGINGS, 8,
+                    ArmorItem.Type.BOOTS, 4
+            ),
+            20,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.ofItems(ModItems.ROSE_NETHERITE_INGOT),
+            2.0F,
+            0.1F,
+            false);
 
-    private static final int[] BASE_DURABILITY = { 11, 16, 15, 13 };
+    public static RegistryEntry<ArmorMaterial> registerMaterial(String id, Map<ArmorItem.Type, Integer> defensePoints,
+                                                                int enchantability, RegistryEntry<SoundEvent> equipSound,
+                                                                Supplier<Ingredient> repairIngredientSupplier,
+                                                                float toughness, float knockbackResistance,
+                                                                boolean dyeable) {
+        List<ArmorMaterial.Layer> layers = List.of(
+                new ArmorMaterial.Layer(Identifier.of(TheCureMod.MOD_ID, id), "", dyeable)
+        );
 
-    ModArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound,
-                      float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
-        this.name = name;
-        this.durabilityMultiplier = durabilityMultiplier;
-        this.protectionAmounts = protectionAmounts;
-        this.enchantability = enchantability;
-        this.equipSound = equipSound;
-        this.toughness = toughness;
-        this.knockbackResistance = knockbackResistance;
-        this.repairIngredient = repairIngredient;
+        ArmorMaterial material = new ArmorMaterial(defensePoints, enchantability, equipSound,
+                repairIngredientSupplier, layers, toughness, knockbackResistance);
+
+        material = Registry.register(Registries.ARMOR_MATERIAL, Identifier.of(TheCureMod.MOD_ID, id), material);
+
+        return RegistryEntry.of(material);
     }
 
-    @Override
-    public int getDurability(ArmorItem.Type type) {
-        return BASE_DURABILITY[type.ordinal()] * this.durabilityMultiplier;
-    }
-
-    @Override
-    public int getProtection(ArmorItem.Type type) {
-        return protectionAmounts[type.ordinal()];
-    }
-
-    @Override
-    public int getEnchantability() {
-        return this.enchantability;
-    }
-
-    @Override
-    public SoundEvent getEquipSound() {
-        return this.equipSound;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient() {
-        return this.repairIngredient.get();
-    }
-
-    @Override
-    public String getName() {
-        return TheCureMod.MOD_ID + ":" + this.name;
-    }
-
-    @Override
-    public float getToughness() {
-        return this.toughness;
-    }
-
-    @Override
-    public float getKnockbackResistance() {
-        return this.knockbackResistance;
+    public static void initialize() {
+        TheCureMod.LOGGER.info("Registering Armor Materials for " + TheCureMod.MOD_ID);
+        // Nothing else needed here as materials are registered as static fields
     }
 }

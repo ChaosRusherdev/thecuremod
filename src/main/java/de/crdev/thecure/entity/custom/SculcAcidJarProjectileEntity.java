@@ -5,12 +5,12 @@ import de.crdev.thecure.entity.ModEntities;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
-import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -20,13 +20,9 @@ public class SculcAcidJarProjectileEntity extends ThrownItemEntity {
     public SculcAcidJarProjectileEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
     }
-    public SculcAcidJarProjectileEntity(LivingEntity livingEntity, World world) {
-        super(ModEntities.THROWN_SCULC_ACID_VIAL_PROJECTILE,livingEntity, world);
-    }
 
-    @Override
-    public Packet<ClientPlayPacketListener> createSpawnPacket() {
-        return new EntitySpawnS2CPacket(this);
+    public SculcAcidJarProjectileEntity(LivingEntity livingEntity, World world) {
+        super(ModEntities.THROWN_SCULC_ACID_VIAL_PROJECTILE, livingEntity, world);
     }
 
     @Override
@@ -38,7 +34,8 @@ public class SculcAcidJarProjectileEntity extends ThrownItemEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
-            target.addStatusEffect(new StatusEffectInstance(ModEffects.SCULC_ACID, 100, 0));
+            RegistryEntry<StatusEffect> sculcAcidEntry = Registries.STATUS_EFFECT.getEntry(ModEffects.SCULC_ACID);
+            target.addStatusEffect(new StatusEffectInstance(sculcAcidEntry, 100, 0));
         }
     }
 
@@ -56,11 +53,11 @@ public class SculcAcidJarProjectileEntity extends ThrownItemEntity {
             effectCloud.setRadius(2.5F); // 3-block radius
             effectCloud.setDuration(120); // Duration in ticks (200 ticks = 10 seconds)
 
-            effectCloud.addEffect(new StatusEffectInstance(ModEffects.SCULC_ACID, 100, 0)); // 5 seconds of Slowness II
+            RegistryEntry<StatusEffect> sculcAcidEntry = Registries.STATUS_EFFECT.getEntry(ModEffects.SCULC_ACID);
+            effectCloud.addEffect(new StatusEffectInstance(sculcAcidEntry, 100, 0));
 
             // Add the cloud to the world
             world.spawnEntity(effectCloud);
         }
     }
-
 }

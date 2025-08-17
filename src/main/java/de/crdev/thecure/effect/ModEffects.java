@@ -15,7 +15,7 @@ public class ModEffects {
             new SculcAcid(StatusEffectCategory.HARMFUL, 0x00D2FF));
 
     private static StatusEffect registerStatusEffect(String name, StatusEffect statusEffect) {
-        return Registry.register(Registries.STATUS_EFFECT, new Identifier(TheCureMod.MOD_ID, name), statusEffect);
+        return Registry.register(Registries.STATUS_EFFECT, Identifier.of(TheCureMod.MOD_ID, name), statusEffect);
     }
 
     public static void registerEffects() {

@@ -12,9 +12,9 @@ public class SculcAcid extends StatusEffect {
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         if (entity.getWorld().isClient) {
-            return; // Ensure this only happens server-side
+            return false;
         }
 
         if(entity.isAlive()) {
@@ -31,6 +31,7 @@ public class SculcAcid extends StatusEffect {
         }
 
         super.applyUpdateEffect(entity, amplifier);
+        return false;
     }
 
 
