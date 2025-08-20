@@ -1,28 +1,36 @@
 package de.crdev.thecure.item;
 
+import com.google.common.base.Suppliers;
+import de.crdev.thecure.tags.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.TagKey;
 
+import java.util.function.Supplier;
 
-public enum ModToolMaterial implements ToolMaterial {
-    ROSE_GOLD(3, 1500, 10.0f, 1.5f, 28),
-    ROSE_NETHERITE(5, 2000, 12.0f, 1.5f, 28);
 
-    private final int miningLevel;
+public enum ModToolMaterials implements ToolMaterial {
+    ROSE_GOLD(ModTags.Blocks.INCORRECT_FOR_ROSEGOLD_TOOL, 1500, 7.0f,
+            1.0f, 28, () -> Ingredient.ofItems(ModItems.ROSE_GOLD_INGOT)),
+    ROSE_NETHERITE(ModTags.Blocks.INCORRECT_FOR_ROSEGOLD_TOOL, 2000, 12.0f,
+            1.5f, 28, () -> Ingredient.ofItems(ModItems.ROSE_GOLD_INGOT));
+
+
+    private final TagKey<Block> inverseTag;
     private final int itemDurability;
     private final float miningSpeed;
     private final float attackDamage;
     private final int enchantability;
+    private final Supplier<Ingredient> repairIngredient;
 
-    ModToolMaterial(int miningLevel, int itemDurability, float miningSpeed, float attackDamage,
-                    int enchantability) {
-        this.miningLevel = miningLevel;
+    ModToolMaterials(TagKey<Block> inverseTag, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
+        this.inverseTag = inverseTag;
         this.itemDurability = itemDurability;
         this.miningSpeed = miningSpeed;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
+        this.repairIngredient = Suppliers.memoize(repairIngredient::get);
     }
 
     @Override
@@ -42,7 +50,7 @@ public enum ModToolMaterial implements ToolMaterial {
 
     @Override
     public TagKey<Block> getInverseTag() {
-        return null;
+        return this.inverseTag;
     }
 
     @Override
@@ -52,7 +60,7 @@ public enum ModToolMaterial implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return null;
+        return this.repairIngredient.get();
     }
 
 }

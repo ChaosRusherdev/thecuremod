@@ -2,6 +2,7 @@ package de.crdev.thecure.entity.custom;
 
 import de.crdev.thecure.effect.ModEffects;
 import de.crdev.thecure.entity.ModEntities;
+import de.crdev.thecure.item.ModItems;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -21,13 +22,9 @@ public class SculcAcidJarProjectileEntity extends ThrownItemEntity {
         super(entityType, world);
     }
 
-    public SculcAcidJarProjectileEntity(LivingEntity livingEntity, World world) {
-        super(ModEntities.THROWN_SCULC_ACID_VIAL_PROJECTILE, livingEntity, world);
-    }
-
     @Override
     protected Item getDefaultItem() {
-        return null;
+        return ModItems.SCULC_ACID_JAR;
     }
 
     @Override

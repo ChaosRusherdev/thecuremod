@@ -1,7 +1,6 @@
 package de.crdev.thecure.item;
 
 import de.crdev.thecure.TheCureMod;
-import de.crdev.thecure.item.custom.DoctorsArmorItem;
 import de.crdev.thecure.item.custom.SculcAcidJarItem;
 import de.crdev.thecure.item.custom.SculcAcidVialItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -15,12 +14,12 @@ public class ModItems {
 
     // Armor
 
-    public static final Item DOCTORS_GLASSES = registerItem("doctors_glasses",
-            new DoctorsArmorItem(ModArmorMaterials.ROSE_NETHERITE, ArmorItem.Type.HELMET, new Item.Settings().fireproof()));
-    public static final Item DOCTORS_COAT = registerItem("doctors_coat",
-            new DoctorsArmorItem(ModArmorMaterials.ROSE_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().fireproof()));
-    public static final Item DOCTORS_BELT = registerItem("doctors_belt",
-            new DoctorsArmorItem(ModArmorMaterials.ROSE_NETHERITE, ArmorItem.Type.LEGGINGS, new Item.Settings().fireproof()));
+//    public static final Item DOCTORS_GLASSES = registerItem("doctors_glasses",
+//            new DoctorsArmorItem(ModArmorMaterials.ROSE_NETHERITE, ArmorItem.Type.HELMET, new Item.Settings().fireproof()));
+//    public static final Item DOCTORS_COAT = registerItem("doctors_coat",
+//            new DoctorsArmorItem(ModArmorMaterials.ROSE_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().fireproof()));
+//    public static final Item DOCTORS_BELT = registerItem("doctors_belt",
+//            new DoctorsArmorItem(ModArmorMaterials.ROSE_NETHERITE, ArmorItem.Type.LEGGINGS, new Item.Settings().fireproof()));
 
     // Ingots
 
@@ -46,15 +45,15 @@ public class ModItems {
     // Tools
 
     public static final Item ROSE_GOLD_SWORD = registerItem("rose_gold_sword",
-            new SwordItem(ModToolMaterial.ROSE_GOLD, new Item.Settings()));
+            new SwordItem(ModToolMaterials.ROSE_GOLD, new Item.Settings()));
     public static final Item ROSE_GOLD_PICKAXE = registerItem("rose_gold_pickaxe",
-            new PickaxeItem(ModToolMaterial.ROSE_GOLD,  new Item.Settings()));
+            new PickaxeItem(ModToolMaterials.ROSE_GOLD,  new Item.Settings()));
     public static final Item ROSE_GOLD_SHOVEL = registerItem("rose_gold_shovel",
-            new ShovelItem(ModToolMaterial.ROSE_GOLD, new Item.Settings()));
+            new ShovelItem(ModToolMaterials.ROSE_GOLD, new Item.Settings()));
     public static final Item ROSE_GOLD_AXE = registerItem("rose_gold_axe",
-            new AxeItem(ModToolMaterial.ROSE_GOLD, new Item.Settings()));
+            new AxeItem(ModToolMaterials.ROSE_GOLD, new Item.Settings()));
     public static final Item ROSE_GOLD_HOE = registerItem("rose_gold_hoe",
-            new HoeItem(ModToolMaterial.ROSE_GOLD,  new Item.Settings()));
+            new HoeItem(ModToolMaterials.ROSE_GOLD,  new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         Identifier itemID = Identifier.of(TheCureMod.MOD_ID, name);

@@ -15,11 +15,11 @@ public class ModItemGroup {
     public static final ItemGroup THE_CURE_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(TheCureMod.MOD_ID, "the_cure_group"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.the_cure_group"))
-                    .icon(() -> new ItemStack(ModItems.DOCTORS_GLASSES)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.GLASS_VIAL)).entries((displayContext, entries) -> {
 
-                        entries.add(ModItems.DOCTORS_GLASSES);
-                        entries.add(ModItems.DOCTORS_COAT);
-                        entries.add(ModItems.DOCTORS_BELT);
+//                        entries.add(ModItems.DOCTORS_GLASSES);
+//                        entries.add(ModItems.DOCTORS_COAT);
+//                        entries.add(ModItems.DOCTORS_BELT);
 
                         entries.add(ModItems.COPPER_GOLD_ALLOY);
                         entries.add(ModItems.ROSE_GOLD_INGOT);
