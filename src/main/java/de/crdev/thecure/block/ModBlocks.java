@@ -13,22 +13,26 @@ public class ModBlocks {
 
     public static final Block ROSE_GOLD_BLOCK = registerBlockItem(
             "rose_gold_block",
-            new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)),
+            new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)
+                    .strength(4f).requiresTool()),
             true);
 
     public static final Block ROSE_GOLD_BRICKS = registerBlockItem(
             "rose_gold_bricks",
-            new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)),
+            new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)
+                    .strength(4f).requiresTool()),
             true);
 
     public static final Block ROSE_GOLD_BRICK_STAIRS = registerBlockItem(
             "rose_gold_brick_stairs",
-            new StairsBlock(ModBlocks.ROSE_GOLD_BRICKS.getDefaultState(), AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)),
+            new StairsBlock(ModBlocks.ROSE_GOLD_BRICKS.getDefaultState(), AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)
+                    .strength(4f).requiresTool()),
             true
     );
     public static final Block ROSE_GOLD_BRICK_SLAB = registerBlockItem(
             "rose_gold_brick_slab",
-            new SlabBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)),
+            new SlabBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)
+                    .strength(4f).requiresTool()),
             true);
 
 

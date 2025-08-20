@@ -1,1 +1,5 @@
-// 1.20.2	2024-03-16T19:26:01.1213017	theCure/Tags for minecraft:block
+// 1.21	2025-08-20T18:16:13.168173185	theCure/Tags for minecraft:block
+f1d2951a637ab608a3359144740776ac49eeedc7 data/minecraft/tags/block/mineable/pickaxe.json
+750bd66f3f580c4aaf8e940ac86e68fe5012e07d data/minecraft/tags/block/stairs.json
+4d20128f723f7fcbff90d64c0b7482569218a643 data/minecraft/tags/block/slabs.json
+d9509ede558adf635b65e0e1cafc504de0a39e08 data/minecraft/tags/block/needs_iron_tool.json
