@@ -45,15 +45,29 @@ public class ModItems {
     // Tools
 
     public static final Item ROSE_GOLD_SWORD = registerItem("rose_gold_sword",
-            new SwordItem(ModToolMaterials.ROSE_GOLD, new Item.Settings()));
+            new SwordItem(ModToolMaterials.ROSE_GOLD,
+            new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(
+                    ModToolMaterials.ROSE_GOLD, 3, -2.2f))));
+
     public static final Item ROSE_GOLD_PICKAXE = registerItem("rose_gold_pickaxe",
-            new PickaxeItem(ModToolMaterials.ROSE_GOLD,  new Item.Settings()));
+            new PickaxeItem(ModToolMaterials.ROSE_GOLD,
+                    new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(
+                            ModToolMaterials.ROSE_GOLD, 1, -2.6f))));
+
     public static final Item ROSE_GOLD_SHOVEL = registerItem("rose_gold_shovel",
-            new ShovelItem(ModToolMaterials.ROSE_GOLD, new Item.Settings()));
+            new ShovelItem(ModToolMaterials.ROSE_GOLD,
+                    new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(
+                            ModToolMaterials.ROSE_GOLD, 1.5f, -2.8f))));
+
     public static final Item ROSE_GOLD_AXE = registerItem("rose_gold_axe",
-            new AxeItem(ModToolMaterials.ROSE_GOLD, new Item.Settings()));
+            new AxeItem(ModToolMaterials.ROSE_GOLD,
+                    new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(
+                            ModToolMaterials.ROSE_GOLD, 6.0f, -2.9f))));
+
     public static final Item ROSE_GOLD_HOE = registerItem("rose_gold_hoe",
-            new HoeItem(ModToolMaterials.ROSE_GOLD,  new Item.Settings()));
+            new HoeItem(ModToolMaterials.ROSE_GOLD,
+                    new Item.Settings().attributeModifiers(
+                            HoeItem.createAttributeModifiers(ModToolMaterials.ROSE_GOLD, -2, 0.2f))));
 
     private static Item registerItem(String name, Item item) {
         Identifier itemID = Identifier.of(TheCureMod.MOD_ID, name);

@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 
 public enum ModToolMaterials implements ToolMaterial {
-    ROSE_GOLD(ModTags.Blocks.INCORRECT_FOR_ROSEGOLD_TOOL, 1500, 7.0f,
+    ROSE_GOLD(ModTags.Blocks.INCORRECT_FOR_ROSEGOLD_TOOL, 1000, 7.0f,
             1.0f, 28, () -> Ingredient.ofItems(ModItems.ROSE_GOLD_INGOT)),
     ROSE_NETHERITE(ModTags.Blocks.INCORRECT_FOR_ROSEGOLD_TOOL, 2000, 12.0f,
             1.5f, 28, () -> Ingredient.ofItems(ModItems.ROSE_GOLD_INGOT));
