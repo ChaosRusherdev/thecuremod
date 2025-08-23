@@ -30,6 +30,8 @@ public class ModItemGroup {
                         entries.add(ModItems.GLASS_VIAL);
                         entries.add(ModItems.SCULC_ACID_VIAL);
 
+                        entries.add(ModItems.POTION_GAUNTLET);
+
                         entries.add(ModItems.ROSE_GOLD_SWORD);
                         entries.add(ModItems.ROSE_GOLD_PICKAXE);
                         entries.add(ModItems.ROSE_GOLD_SHOVEL);

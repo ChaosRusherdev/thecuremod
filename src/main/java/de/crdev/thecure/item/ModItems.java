@@ -42,6 +42,12 @@ public class ModItems {
     public static final Item SCULC_ACID_VIAL = registerItem("sculc_acid_vial",
             new SculcAcidVialItem(new Item.Settings().maxCount(16)));
 
+    // Misc
+
+    public static final Item POTION_GAUNTLET = registerItem("potion_gauntlet",
+            new SwordItem(ModToolMaterials.ROSE_NETHERITE,
+                    new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(
+                            ModToolMaterials.ROSE_GOLD, 4, -2.5f))));
     // Tools
 
     public static final Item ROSE_GOLD_SWORD = registerItem("rose_gold_sword",

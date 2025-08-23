@@ -1,4 +1,4 @@
-// 1.21	2025-08-20T18:16:13.167386357	theCure/Model Definitions
+// 1.21	2025-08-24T00:20:14.608413117	theCure/Model Definitions
 bf05cffec846f62d3851c95a4a55b683b7914c35 assets/thecure/models/item/rose_gold_brick_stairs.json
 1bf16646f3fcf641584c73acc55c4d324d48a277 assets/thecure/models/block/rose_gold_brick_stairs_outer.json
 89a0218ad340a3b2b486aad74e832934711b68eb assets/thecure/models/item/rose_gold_block.json
@@ -7,8 +7,8 @@ ec68a2f31cfc4250f1260b010255ac7abb8fd608 assets/thecure/models/item/rose_gold_in
 6d37db34f26eae03134ba5d092d441b9959c60e7 assets/thecure/models/block/rose_gold_bricks.json
 ef90f338b4817941e71bfd1b17df931b98aac728 assets/thecure/models/block/rose_gold_brick_slab_top.json
 64a2a3e54eeb4c6c50405bf0f9e8e89aecbb3f67 assets/thecure/models/block/rose_gold_brick_stairs.json
-67009c3b2b3c218686811e185f622b7c89e9784f assets/thecure/models/item/rose_gold_hoe.json
 bdc2d7b489c0094136abe17a3b1040d87ef3958d assets/thecure/models/item/rose_gold_bricks.json
+67009c3b2b3c218686811e185f622b7c89e9784f assets/thecure/models/item/rose_gold_hoe.json
 714f557590e42a1fe25b7ac55e771d3049e667c3 assets/thecure/models/block/rose_gold_brick_stairs_inner.json
 1c2662d13ef2522870f960b4cc4c3e9d513849f5 assets/thecure/models/item/rose_gold_sword.json
 2a8415fda76444c1e979d9d288af6ec820a23258 assets/thecure/models/item/rose_gold_pickaxe.json
