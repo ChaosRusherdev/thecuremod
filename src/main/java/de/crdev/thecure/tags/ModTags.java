@@ -11,6 +11,8 @@ public class ModTags {
     public static class Blocks {
         public static final TagKey<Block> INCORRECT_FOR_ROSEGOLD_TOOL = createTag("incorrect_for_rosegold_tool");
 
+        public static final TagKey<Block> SCULC_ACID_REACTIVE_ORES =
+                TagKey.of(RegistryKeys.BLOCK, Identifier.of(TheCureMod.MOD_ID, "sculc_acid_reactive_ores"));
 
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(TheCureMod.MOD_ID, name));

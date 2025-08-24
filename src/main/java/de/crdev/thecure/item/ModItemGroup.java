@@ -25,6 +25,10 @@ public class ModItemGroup {
                         entries.add(ModItems.ROSE_GOLD_INGOT);
                         entries.add(ModItems.ROSE_NETHERITE_INGOT);
 
+                        entries.add(ModItems.DISSOLVED_RAW_IRON);
+                        entries.add(ModItems.DISSOLVED_RAW_GOLD);
+                        entries.add(ModItems.DISSOLVED_RAW_COPPER);
+
                         entries.add(ModItems.GLASS_JAR);
                         entries.add(ModItems.SCULC_ACID_JAR);
                         entries.add(ModItems.GLASS_VIAL);

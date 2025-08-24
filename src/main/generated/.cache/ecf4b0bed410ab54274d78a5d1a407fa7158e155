@@ -1,9 +1,11 @@
-// 1.21	2025-08-24T00:20:14.608413117	theCure/Model Definitions
+// 1.21	2025-08-24T17:50:02.103811103	theCure/Model Definitions
 bf05cffec846f62d3851c95a4a55b683b7914c35 assets/thecure/models/item/rose_gold_brick_stairs.json
 1bf16646f3fcf641584c73acc55c4d324d48a277 assets/thecure/models/block/rose_gold_brick_stairs_outer.json
+d917f7fe10e09a2180273f7a2c4bc2af2043c2da assets/thecure/models/item/dissolved_raw_iron.json
 89a0218ad340a3b2b486aad74e832934711b68eb assets/thecure/models/item/rose_gold_block.json
 62fb785d3d4eb7c403b35d54c1e473246a2fa728 assets/thecure/models/item/sculc_acid_vial.json
 ec68a2f31cfc4250f1260b010255ac7abb8fd608 assets/thecure/models/item/rose_gold_ingot.json
+6a30e518107012a9356fa6451016e428e7cb6627 assets/thecure/models/item/dissolved_raw_gold.json
 6d37db34f26eae03134ba5d092d441b9959c60e7 assets/thecure/models/block/rose_gold_bricks.json
 ef90f338b4817941e71bfd1b17df931b98aac728 assets/thecure/models/block/rose_gold_brick_slab_top.json
 64a2a3e54eeb4c6c50405bf0f9e8e89aecbb3f67 assets/thecure/models/block/rose_gold_brick_stairs.json
@@ -17,8 +19,9 @@ bdc2d7b489c0094136abe17a3b1040d87ef3958d assets/thecure/models/item/rose_gold_br
 147f43b34aec5aacca4e26a3b043a8c7e5f7898a assets/thecure/models/block/rose_gold_block.json
 5d884e3d46579b1d2a709d875fd125d40aa2ce96 assets/thecure/blockstates/rose_gold_brick_stairs.json
 00d0b1aedc06533789580fb163c0eb77beec201e assets/thecure/blockstates/rose_gold_brick_slab.json
-1816686374b4b2da46716af3e452b2217dc54c33 assets/thecure/models/item/rose_netherite_ingot.json
+0529343df34ddcb347941b84cc7bd8db0860c7b6 assets/thecure/models/item/dissolved_raw_copper.json
 ebc145b6afbd58d08676a2fd1e7a90f8e52766db assets/thecure/models/item/glass_jar.json
+1816686374b4b2da46716af3e452b2217dc54c33 assets/thecure/models/item/rose_netherite_ingot.json
 8e74ad6d98f9ea8329ecee11b75eb0f4118ebd65 assets/thecure/models/item/rose_gold_brick_slab.json
 46cfe0241c644f3741977f4edccb6da4bef07e6b assets/thecure/blockstates/rose_gold_bricks.json
 2dec74b55f5e1eea9486fe0363647e2f75aa5825 assets/thecure/models/item/copper_gold_alloy.json

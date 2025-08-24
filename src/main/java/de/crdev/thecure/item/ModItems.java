@@ -30,6 +30,15 @@ public class ModItems {
     public static final Item ROSE_NETHERITE_INGOT = registerItem("rose_netherite_ingot",
             new Item(new Item.Settings()));
 
+    // Ores
+
+    public static final Item DISSOLVED_RAW_IRON = registerItem("dissolved_raw_iron",
+            new Item(new Item.Settings()));
+    public static final Item DISSOLVED_RAW_GOLD = registerItem("dissolved_raw_gold",
+            new Item(new Item.Settings()));
+    public static final Item DISSOLVED_RAW_COPPER = registerItem("dissolved_raw_copper",
+            new Item(new Item.Settings()));
+
     // Vials
 
     public static final Item GLASS_JAR = registerItem("glass_jar",
@@ -48,6 +57,7 @@ public class ModItems {
             new SwordItem(ModToolMaterials.ROSE_NETHERITE,
                     new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(
                             ModToolMaterials.ROSE_GOLD, 4, -2.5f))));
+
     // Tools
 
     public static final Item ROSE_GOLD_SWORD = registerItem("rose_gold_sword",
