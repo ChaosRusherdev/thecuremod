@@ -32,13 +32,9 @@ public class TheCureModClient implements ClientModInitializer {
                 ModFluids.FLOWING_SCULC_ACID,
                 new SimpleFluidRenderHandler(
                         Identifier.of(TheCureMod.MOD_ID, "block/sculc_acid_still"),
-                        Identifier.of("minecraft", "block/water_flow"),
+                        Identifier.of(TheCureMod.MOD_ID, "block/sculc_acid_flowing"),
                         0xFFFFFFFF
                 )
-        );
-
-        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(),
-                ModFluids.STILL_SCULC_ACID, ModFluids.FLOWING_SCULC_ACID
         );
     }
 }

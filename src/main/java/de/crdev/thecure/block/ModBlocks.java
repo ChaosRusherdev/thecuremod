@@ -17,7 +17,12 @@ public class ModBlocks {
     public static final Block SCULC_ACID_BLOCK = registerBlockItem(
             "sculc_acid_block",
             new FluidBlock(ModFluids.STILL_SCULC_ACID, AbstractBlock.Settings.create().noCollision()
-                    .strength(100f).dropsNothing().luminance(state -> 10)),
+                    .strength(100f)
+                    .dropsNothing()
+                    .luminance(state -> 10)
+                    .replaceable()
+                    .liquid()
+            ),
             false);
 
 

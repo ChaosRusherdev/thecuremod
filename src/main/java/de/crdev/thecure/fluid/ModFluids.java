@@ -17,8 +17,6 @@ public class ModFluids {
             new SculcAcidFluid.Flowing());
 
 
-
-
     private static FlowableFluid registerFluid(String name, FlowableFluid fluid) {
         Identifier fluidID = Identifier.of(TheCureMod.MOD_ID, name);
 

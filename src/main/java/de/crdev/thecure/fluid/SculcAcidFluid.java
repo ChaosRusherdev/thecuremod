@@ -3,7 +3,9 @@ package de.crdev.thecure.fluid;
 import de.crdev.thecure.block.ModBlocks;
 import de.crdev.thecure.item.ModItems;
 import de.crdev.thecure.particle.ModParticles;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
@@ -47,10 +49,8 @@ public class SculcAcidFluid extends FlowableFluid {
 
     @Override
     protected void beforeBreakingBlock(WorldAccess world, BlockPos pos, BlockState state) {
-        this.playExtinguishEvent(world, pos);
-    }
-    private void playExtinguishEvent(WorldAccess world, BlockPos pos) {
-        world.syncWorldEvent(1501, pos, 0);
+        final BlockEntity blockEntity = state.hasBlockEntity() ? world.getBlockEntity(pos) : null;
+        Block.dropStacks(state, world, pos, blockEntity);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class SculcAcidFluid extends FlowableFluid {
 
     @Override
     protected boolean canBeReplacedWith(FluidState state, BlockView world, BlockPos pos, Fluid fluid, Direction direction) {
-        return false;
+        return true;
     }
 
     @Override
@@ -105,10 +105,6 @@ public class SculcAcidFluid extends FlowableFluid {
             return state.get(LEVEL);
         }
 
-        @Override
-        public boolean isStill(FluidState state) {
-            return false;
-        }
     }
     public static class Still extends SculcAcidFluid {
         @Override
