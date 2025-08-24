@@ -1,6 +1,7 @@
 package de.crdev.thecure.item;
 
 import de.crdev.thecure.TheCureMod;
+import de.crdev.thecure.fluid.ModFluids;
 import de.crdev.thecure.item.custom.SculcAcidJarItem;
 import de.crdev.thecure.item.custom.SculcAcidVialItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -38,6 +39,12 @@ public class ModItems {
             new Item(new Item.Settings()));
     public static final Item DISSOLVED_RAW_COPPER = registerItem("dissolved_raw_copper",
             new Item(new Item.Settings()));
+
+
+    // Buckets
+
+    public static final Item SCULC_ACID_BUCKET = registerItem("sculc_acid_bucket",
+            new BucketItem(ModFluids.STILL_SCULC_ACID, new Item.Settings().maxCount(1).recipeRemainder(Items.BUCKET)));
 
     // Vials
 

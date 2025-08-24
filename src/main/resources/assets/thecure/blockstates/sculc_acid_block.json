@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "level=0":  { "model": "thecure:block/sculc_acid_block" },
+    "level=1":  { "model": "thecure:block/sculc_acid_block" },
+    "level=2":  { "model": "thecure:block/sculc_acid_block" },
+    "level=3":  { "model": "thecure:block/sculc_acid_block" },
+    "level=4":  { "model": "thecure:block/sculc_acid_block" },
+    "level=5":  { "model": "thecure:block/sculc_acid_block" },
+    "level=6":  { "model": "thecure:block/sculc_acid_block" },
+    "level=7":  { "model": "thecure:block/sculc_acid_block" },
+    "level=8":  { "model": "thecure:block/sculc_acid_block" },
+    "level=9":  { "model": "thecure:block/sculc_acid_block" },
+    "level=10": { "model": "thecure:block/sculc_acid_block" },
+    "level=11": { "model": "thecure:block/sculc_acid_block" },
+    "level=12": { "model": "thecure:block/sculc_acid_block" },
+    "level=13": { "model": "thecure:block/sculc_acid_block" },
+    "level=14": { "model": "thecure:block/sculc_acid_block" },
+    "level=15": { "model": "thecure:block/sculc_acid_block" }
+  }
+}

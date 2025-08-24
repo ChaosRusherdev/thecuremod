@@ -1,6 +1,7 @@
 package de.crdev.thecure.block;
 
 import de.crdev.thecure.TheCureMod;
+import de.crdev.thecure.fluid.ModFluids;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -10,6 +11,17 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
+
+    // Fluid Blocks
+
+    public static final Block SCULC_ACID_BLOCK = registerBlockItem(
+            "sculc_acid_block",
+            new FluidBlock(ModFluids.STILL_SCULC_ACID, AbstractBlock.Settings.create().noCollision()
+                    .strength(100f).dropsNothing().luminance(state -> 10)),
+            false);
+
+
+    // Building Blocks
 
     public static final Block ROSE_GOLD_BLOCK = registerBlockItem(
             "rose_gold_block",

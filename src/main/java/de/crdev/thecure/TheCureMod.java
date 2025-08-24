@@ -3,6 +3,7 @@ package de.crdev.thecure;
 import de.crdev.thecure.block.ModBlocks;
 import de.crdev.thecure.effect.ModEffects;
 import de.crdev.thecure.entity.ModEntities;
+import de.crdev.thecure.fluid.ModFluids;
 import de.crdev.thecure.item.ModItemGroup;
 import de.crdev.thecure.item.ModItems;
 import de.crdev.thecure.particle.ModParticles;
@@ -32,11 +33,13 @@ public class TheCureMod implements ModInitializer {
 		//ModPaintings.registerPaintings();
 		ModEffects.registerEffects();
 
+		ModFluids.registerModFluids();
+
 		ModPotions.registerPotions();
 		ModParticles.registerParticles();
 
 		//ModVillagers.registerVillagers();
-		//ModFluids.registerFluids();
+		ModFluids.registerModFluids();
 
 		//ModBlockEntities.registerBlockEntities();
 		//ModScreenHandlers.registerScreenHandler();
